@@ -9,8 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@joyid/core": "^0.1.3",
+    "@joyid/evm": "^0.0.6",
+    "@metamask/sdk": "^0.3.0",
+    "bootstrap": "^5.2.3",
     "next": "13.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-sliding-pane": "^7.3.0",
+    "sass": "^1.59.3"
+  },
+  "devDependencies": {
+    "ethers": "5.7.2"
   }
 }
