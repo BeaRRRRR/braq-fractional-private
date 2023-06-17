@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import AppContext from '@/components/AppContext';
 import { Button } from 'react-bootstrap';
 import { ethers } from 'ethers';
-import { useRouter } from 'next/navigation';
-
 import { useContext } from 'react';
-import AppContext from '@/components/AppContext';
+import { useRouter } from 'next/navigation';
 
 export default function Metamask() {
   const { push } = useRouter();
@@ -49,6 +49,8 @@ export default function Metamask() {
       }));
     }
   }, [defaultAccount]);
+
+  // d
 
   return (
     <Button onClick={connectWalletHandler} className="connectButton" size="lg" variant="light">
