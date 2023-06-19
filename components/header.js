@@ -1,15 +1,16 @@
+import { AiOutlinePoweroff, AiOutlineWallet } from 'react-icons/ai';
+import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
+import { connect, signTransaction } from '@joyid/evm';
+import { useContext, useEffect } from 'react';
+
+import AppContext from '@/components/AppContext';
+import { FaRegUserCircle } from 'react-icons/fa';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Button, Modal, Container, Row, Col, Dropdown } from 'react-bootstrap';
-import { AiOutlineWallet, AiOutlinePoweroff } from 'react-icons/ai';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { connect, signTransaction } from '@joyid/evm';
 import { parseEther } from 'ethers/lib/utils';
-import { useContext, useEffect } from 'react';
-import AppContext from '@/components/AppContext';
 import { useState } from 'react';
 
-export default function Home() {
+export default function Header() {
   const context = useContext(AppContext);
   let address = '';
 
@@ -32,6 +33,7 @@ export default function Home() {
   const onCloseModal = () => {
     setModalShow(false);
   };
+	
   const onConnectAndSign = async () => {
     const data = await connect();
     const signedTx = await signTransaction({
@@ -109,15 +111,16 @@ export default function Home() {
             <span>{itemCount}</span>
           </Button>
           <Button
-            onClick={onConnectAndSign}
-            disabled={context.userData.system === 'metamask'}
-            variant="secondary">
+            // onClick={onConnectAndSign}
+            // disabled={context.userData.system === 'metamask'}
+            variant="secondary"
+            href="/launchpad">
             Buy
           </Button>
 
-          <Button variant="secondary" href="/vote">
+          {/* <Button variant="secondary" href="/vote">
             Vote now
-          </Button>
+          </Button> */}
           <Dropdown>
             <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic" drop="end">
               <AiOutlineWallet />

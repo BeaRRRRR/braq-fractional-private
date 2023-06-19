@@ -1,13 +1,12 @@
-import Link from 'next/link';
-import { Button, Container, Row, Col, Dropdown } from 'react-bootstrap';
-import { AiOutlineWallet, AiOutlinePoweroff } from 'react-icons/ai';
+import { AiOutlinePoweroff, AiOutlineWallet } from 'react-icons/ai';
+import { Button, Col, Container, Dropdown, Row } from 'react-bootstrap';
+
 import { FaRegUserCircle } from 'react-icons/fa';
 import Head from '../components/head';
 import Header from '../components/header';
-
+import Link from 'next/link';
 
 export default function Home() {
-  
   return (
     <>
       <Head />

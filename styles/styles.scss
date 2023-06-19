@@ -29,7 +29,9 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
 	font-family: 'Raleway', sans-serif !important;
 	font-weight: 700;
 	color: $secondaryColor;
@@ -41,6 +43,24 @@ h3 {
 
 .textRight {
 	text-align: right;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+
+	button {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	a {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .textLeft {
@@ -369,8 +389,9 @@ a {
 
 	.pageHeader {
 		padding: 24px;
+		display: flex;
+		flex-direction: row;
 		align-items: center;
-		align-content: center;
 
 		.btn {
 			margin-left: 10px;
@@ -516,6 +537,10 @@ a {
 		}
 	}
 
+}
+
+h5 {
+	text-decoration: none;
 }
 
 .fractionDetails {
@@ -948,4 +973,202 @@ a {
 ::-ms-input-placeholder {
 	/* Microsoft Edge */
 	color: $secondaryColor !important;
+}
+
+.imageContainer {
+	position: relative;
+	text-align: center;
+	height: 70vh;
+	color: white;
+
+	background-image: linear-gradient(to bottom, #1e184c, #2e256c, #3e348e, #5043b1, #6252d6);
+
+
+	.firstImage {
+		height: 100%;
+		padding: 0;
+
+	}
+
+	.secondImage {
+		padding: 0px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 30%;
+		transform: translate(-50%, -50%);
+	}
+
+
+}
+
+.launchpoolsContainer {
+	h2 {
+		color: $secondaryColor
+	}
+
+	padding: 2% 15%;
+
+
+
+
+
+}
+
+.metamaskConnectLaunchpad {
+	background-color: red;
+}
+
+.textRightLaunchpad {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	padding: 20px;
+
+	button {
+		width: 200px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		/* Добавьте это свойство для горизонтального выравнивания */
+
+		img {
+			width: 100px;
+			height: 20px;
+		}
+	}
+}
+
+.pool-card {
+	display: flex;
+	align-items: center;
+
+	.pool-image {
+		flex: 1;
+		max-width: calc(100% / 6);
+	}
+
+	.pool-info {
+		flex: 4;
+		display: flex;
+		flex-direction: column;
+
+		&__topbar {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-self: flex-start;
+			/* Добавьте это свойство для прижатия topbar к верху */
+		}
+
+		&__main {
+			flex: 3;
+		}
+	}
+}
+
+.pool {}
+
+.pool-footer {
+	height: 10%;
+	padding-top: 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	font-weight: 400;
+	font-size: 0.7rem;
+
+	span {
+		padding-right: 10px;
+	}
+
+	&__btn {
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		cursor: pointer;
+
+	}
+
+	&__btn:hover {
+		color: orange;
+	}
+}
+
+.pool-card {
+
+
+	display: flex;
+	align-items: stretch;
+	padding-top: 50px;
+
+	.pool-image {
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+
+	.pool-info {
+
+		padding-left: 5px;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		color: $white;
+
+		&__topbar {
+			font-size: 14px;
+			padding: 10px 15px;
+			background-color: #1E184C;
+			max-height: 20%;
+			font-weight: 800;
+			align-items: center;
+			width: 100%;
+			margin-bottom: 10px;
+
+		}
+
+		&__main {
+			flex: 1;
+			background: rgb(1, 74, 160);
+			background: linear-gradient(90deg, rgba(1, 74, 160, 1) 0%, rgba(199, 107, 229, 1) 100%);
+
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+
+			&-element {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+
+				img {
+					width: 48px;
+				}
+
+				&__right-info {
+					padding-left: 15px;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					span {
+						font-size: 0.8rem;
+					}
+
+					.bold {
+						font-weight: 800;
+						font-size: 0.9rem;
+					}
+				}
+			}
+
+		}
+	}
 }

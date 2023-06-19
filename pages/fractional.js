@@ -1,14 +1,15 @@
-import React, { Component, useState } from 'react';
-import Link from 'next/link';
-import { Button, Container, Row, Col, ProgressBar } from 'react-bootstrap';
-import { AiOutlineWallet, AiOutlineClose } from 'react-icons/ai';
-import SlidingPane from 'react-sliding-pane';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
-import Head from '../components/head';
-import Header from '../components/header';
-import { useContext } from 'react';
+
+import { AiOutlineClose, AiOutlineWallet } from 'react-icons/ai';
+import { Button, Col, Container, ProgressBar, Row } from 'react-bootstrap';
+import React, { Component, useState } from 'react';
 
 import AppContext from '@/components/AppContext';
+import Head from '../components/head';
+import Header from '../components/header';
+import Link from 'next/link';
+import SlidingPane from 'react-sliding-pane';
+import { useContext } from 'react';
 
 export default function Home() {
   const [state, setState] = useState({

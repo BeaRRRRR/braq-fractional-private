@@ -1,7 +1,7 @@
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
+
 import Head from '../components/head';
 import Metamask from '@/components/metamask';
-import JoyID from '@/components/joyid';
 
 export default function Home() {
   return (
@@ -15,7 +15,6 @@ export default function Home() {
           <p>Connect your wallet to manage your assets.</p>
           <div className="connectButtons">
             <Metamask />
-            <JoyID />
           </div>
         </div>
       </div>
