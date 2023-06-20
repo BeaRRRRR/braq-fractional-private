@@ -76,6 +76,17 @@ a {
 	}
 }
 
+a {
+	color: inherit;
+	/* blue colors for links too */
+	text-decoration: inherit;
+
+	/* no underline */
+	&:hover {
+		color: inherit;
+	}
+}
+
 .btn {
 	font-weight: 400;
 	padding: 10px 30px;
@@ -1170,5 +1181,149 @@ h5 {
 			}
 
 		}
+	}
+}
+
+.launchpoolContainer {
+	padding: 2% 15%;
+
+	.back-btn {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+
+		padding-bottom: 24px;
+
+		.launchpool {
+			.launchpool-card {
+				.launchpool-image {}
+			}
+		}
+
+		svg {
+			margin-right: 5px;
+		}
+	}
+}
+
+.launchpoolImage {
+
+	flex: 0 0 100%;
+	max-width: 100%;
+
+}
+
+.left-bottom {
+
+	img {
+		width: 24px;
+		margin-right: 8px;
+	}
+
+	.launchpadIcons {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		align-items: center;
+
+		&div {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+	}
+}
+
+.left-block {
+
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+.rightBlock {
+	height: auto;
+
+	.topbar {
+
+		padding: 10px;
+		background-color: #1E184C;
+		color: $whiteColor;
+		font-size: 18px;
+		font-weight: 800;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		svg {
+			margin-right: 10px;
+		}
+	}
+
+	.mainContent {
+		background: rgb(1, 74, 160);
+		background: linear-gradient(90deg, rgba(1, 74, 160, 1) 0%, rgba(199, 107, 229, 1) 100%);
+		color: $white;
+
+		.first {
+			display: flex;
+			flex-direction: row;
+
+			justify-content: space-between;
+
+			.left {
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+
+				.iconContainer {
+					padding: 10px;
+					display: flex;
+					flex-direction: row;
+
+
+					.iconContainerText {
+						padding: 10px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+					}
+
+					img {
+						margin: 16px;
+						width: 32px;
+					}
+
+					&__right-info {
+						padding-left: 15px;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+
+						span {
+							font-size: 0.8rem;
+						}
+
+						.bold {
+							font-weight: 800;
+							font-size: 0.9rem;
+						}
+					}
+				}
+			}
+
+			.right {}
+
+			.right {}
+		}
+
+		.second {}
 	}
 }

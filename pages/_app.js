@@ -1,21 +1,15 @@
 import '../styles/styles.scss';
 
-import { useState, createContext } from 'react';
-import AppContext from '@/components/AppContext';
+import { createContext, useState } from 'react';
 
-const app = ({ Component, pageProps }) => {
-  const [userData, setUserData] = useState({
-    address: null,
-    balance: null,
-    system: null,
-    itemCount: 0,
-  });
+import AppProvider from '../components/AppContext';
 
+function MyApp({ Component, pageProps }) {
   return (
-    <AppContext.Provider value={{ userData, setUserData }}>
+    <AppProvider>
       <Component {...pageProps} />
-    </AppContext.Provider>
+    </AppProvider>
   );
-};
+}
 
-export default app;
+export default MyApp;
