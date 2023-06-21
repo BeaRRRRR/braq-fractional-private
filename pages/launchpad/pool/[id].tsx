@@ -2,29 +2,30 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
-import { connect, signTransaction } from '@joyid/evm';
 
-import AppContext from '@/components/AppContext';
+
+import { useContractWrite, usePrepareContractWrite } from 'wagmi';
+
+
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiCheckCircle } from 'react-icons/fi';
-import Head from '../../../components/head';
-import Header from '../../../components/header';
-import Link from 'next/link';
-import Metamask from '@/components/metamask';
-import Pool from '@/components/pool';
-import SlidingPane from 'react-sliding-pane';
-import { parseEther } from 'ethers/lib/utils';
-import { pools } from '../../../mock/pools';
-import { useContext } from 'react';
+import { Head } from 'next/document';
+
 import { useRouter } from 'next/router';
+import {pools} from "@/mock/pools";
 
+import {abi} from "@/mock/abi"
 export default function Launchpad() {
-  const context = useContext(AppContext);
-
   const router = useRouter();
-  console.log(context);
 
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
+
+  const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634',
+    abi: abi,
+    functionName: 'publicSale',
+    value:
+  });
 
   return (
     <>
@@ -48,7 +49,7 @@ export default function Launchpad() {
           </Row>
 
           <Row className="launchpoolContainer">
-            <div type="button" onClick={() => router.back()} className="back-btn">
+            <div onClick={() => router.back()} className="back-btn">
               <BsArrowLeft />
               <span>BACK</span>
             </div>
@@ -120,7 +121,11 @@ export default function Launchpad() {
                           </div>
                         </div>
                       </div>
-                      <div className="right"></div>
+                      <div className="right">
+                        <button onClick={() => write()}>Buy</button>
+                        {isLoading && <div>Check Wallet</div>}
+                        {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
+                      </div>
                     </div>
                   </div>
                 </Col>

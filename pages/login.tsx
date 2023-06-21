@@ -1,8 +1,9 @@
+import { useAccount, useConnect, useDisconnect, useSignMessage } from "wagmi";
+
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { signIn } from "next-auth/react";
-import { useAccount, useConnect, useSignMessage, useDisconnect } from "wagmi";
-import { useRouter } from "next/router";
 import { useAuthRequestChallengeEvm } from "@moralisweb3/next";
+import { useRouter } from "next/router";
 
 function SignIn() {
   const { connectAsync } = useConnect();
@@ -27,6 +28,7 @@ function SignIn() {
     });
 
     const signature = await signMessageAsync({ message });
+		
 
     // redirect user after success authentication to '/profile' page
     const { url } = await signIn("moralis-auth", {

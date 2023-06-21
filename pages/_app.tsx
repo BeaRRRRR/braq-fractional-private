@@ -1,14 +1,13 @@
 import '../styles/styles.scss';
 
-import { createConfig, configureChains, WagmiConfig } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
-import { SessionProvider } from "next-auth/react";
-import { mainnet } from "wagmi/chains";
+import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 
-const { publicClient, webSocketPublicClient } = configureChains(
-  [mainnet],
-  [publicProvider()]
-);
+import { MoralisProvider } from 'react-moralis';
+import { SessionProvider } from 'next-auth/react';
+import { mainnet } from 'wagmi/chains';
+import { publicProvider } from 'wagmi/providers/public';
+
+const { publicClient, webSocketPublicClient } = configureChains([mainnet], [publicProvider()]);
 
 const config = createConfig({
   autoConnect: true,
@@ -21,7 +20,9 @@ function MyApp({ Component, pageProps }) {
     <WagmiConfig config={config}>
       <SessionProvider session={pageProps.session} refetchInterval={0}>
         {/* <AppProvider> */}
+        <MoralisProvider serverUrl="https://localhost:3000" appId="YOUR_APP_ID">
           <Component {...pageProps} />
+        </MoralisProvider>
         {/* </AppProvider> */}
       </SessionProvider>
     </WagmiConfig>
@@ -29,4 +30,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
