@@ -3,7 +3,7 @@ import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import { connect, signTransaction } from '@joyid/evm';
 import { useContext, useEffect } from 'react';
 
-import AppContext from '@/components/AppContext';
+import AppContext from '../components/AppContext';
 import { FaRegUserCircle } from 'react-icons/fa';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export default function Header() {
   const context = useContext(AppContext);
   let address = '';
 
-  if (context.userData.address) {
+  if (context?.userData?.address) {
     let long_address = context.userData.address;
     address = `${long_address.slice(0, 4)}...${long_address.slice(-4)}`;
   }
