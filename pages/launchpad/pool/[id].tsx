@@ -2,29 +2,54 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
+import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 
 
-import { useContractWrite, usePrepareContractWrite } from 'wagmi';
+import { useAccount, useConnect, useContractWrite, useDisconnect, usePrepareContractWrite } from 'wagmi';
 
 
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiCheckCircle } from 'react-icons/fi';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 import { useRouter } from 'next/router';
 import {pools} from "@/mock/pools";
 
 import {abi} from "@/mock/abi"
-export default function Launchpad() {
+
+export default function LaunchpadItem() {
   const router = useRouter();
+  const { address, connector, isConnected } = useAccount();
+  console.log(isConnected, address)
+
+  const { connectAsync } = useConnect();
+  const { disconnectAsync } = useDisconnect();
+
+  async function handleSmartContract() {
+    await handleAuth();
+    write()
+  }
+
+  const handleAuth = async () => {
+    if (isConnected) {
+      await disconnectAsync();
+    }
+
+    const { account, chain } = await connectAsync({
+      connector: new MetaMaskConnector(),
+    });
+  };
+
 
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
   const { data, isLoading, isSuccess, write } = useContractWrite({
     address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634',
-    abi: abi,
+    abi: abi.abi,
     functionName: 'publicSale',
-    value:
+    onSuccess(data) {
+      console.log(data);
+    }
   });
 
   return (
@@ -122,7 +147,7 @@ export default function Launchpad() {
                         </div>
                       </div>
                       <div className="right">
-                        <button onClick={() => write()}>Buy</button>
+                        <button onClick={() => handleSmartContract()}>Buy</button>
                         {isLoading && <div>Check Wallet</div>}
                         {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
                       </div>

@@ -8,9 +8,12 @@ import { VscDebugDisconnect } from 'react-icons/vsc';
 import Head from '@/components/head';
 import Header from '@/components/header';
 import { useState } from "react";
+import { useAccount } from "wagmi";
 
 export default function Home({ user }) {
   const [kyc, setKyc] = useState(null);
+  const { address, connector, isConnected } = useAccount();
+  console.log(isConnected, address)
 
   async function createKyc() {
     const resp = await fetch('api/kyc/create', {

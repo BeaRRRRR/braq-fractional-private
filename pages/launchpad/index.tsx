@@ -3,23 +3,12 @@ import {} from 'react-icons/ai';
 
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
-import { connect, signTransaction } from '@joyid/evm';
 
-import { AiOutlineArrowLeft } from 'react-icons/ai';
-import AppContext from '@/components/AppContext';
-import { FaRegUserCircle } from 'react-icons/fa';
-import Head from '../../components/head';
-import Header from '../../components/header';
-import Link from 'next/link';
-import Metamask from '@/components/metamask';
+import Head from '@/components/head';
 import Pool from '@/components/pool';
-import SlidingPane from 'react-sliding-pane';
-import { parseEther } from 'ethers/lib/utils';
 import { pools } from '../../mock/pools';
-import { useContext } from 'react';
 
 export default function Launchpad() {
-  const context = useContext(AppContext);
 
   return (
     <>
