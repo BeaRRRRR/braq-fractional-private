@@ -1,7 +1,7 @@
 import { Button, Col, Container, Row } from 'react-bootstrap';
 
-import Head from '../components/head';
-import Metamask from '@/components/metamask';
+import Head from '../components/Head';
+import Metamask from '../components/Metamask';
 
 export default function Home() {
   return (
