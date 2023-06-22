@@ -1489,3 +1489,20 @@ h5 {
 	/* Most modern browsers support this now. */
 	color: white;
 }
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.numeric-input {
+
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+}

@@ -156,9 +156,8 @@ export default function LaunchpadItem() {
                   </div>
                 </Col>
                 <Col md={8} className="rightBlock">
-                  <div className="topbar">
-                    <FiCheckCircle size={30} />
-                    <span>COMPLETED</span>
+                  <div className="topbar" style={{ justifyContent: 'end' }}>
+                    <span>IN PROGRESS</span>
                   </div>
                   <div className="mainContent">
                     <div className="first">
@@ -191,7 +190,11 @@ export default function LaunchpadItem() {
                       <div className="top">
                         <span>AMOUNT USED:</span>
                         <div className="inpt">
-                          <input value={ethValue} onChange={(e) => handleInputChange(e)}></input>
+                          <input
+                            type="number"
+                            className="numeric-input"
+                            value={ethValue}
+                            onChange={(e) => handleInputChange(e)}></input>
                           <span>ETH</span>
                         </div>
                       </div>
