@@ -5,7 +5,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 
 
-import { useAccount, useConnect, useContractWrite, useDisconnect, usePrepareContractWrite } from 'wagmi';
+import { useAccount, useConnect, useContractWrite, useDisconnect, usePrepareContractWrite, useSignMessage } from 'wagmi';
 
 
 import { BsArrowLeft } from 'react-icons/bs';
@@ -16,14 +16,19 @@ import { useRouter } from 'next/router';
 import {pools} from "@/mock/pools";
 
 import {abi} from "@/mock/abi"
+import { signIn, useSession } from 'next-auth/react';
+import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 
 export default function LaunchpadItem() {
   const router = useRouter();
   const { address, connector, isConnected } = useAccount();
+  const { status } = useSession();
   console.log(isConnected, address)
 
   const { connectAsync } = useConnect();
   const { disconnectAsync } = useDisconnect();
+  const { signMessageAsync } = useSignMessage();
+  const { requestChallengeAsync } = useAuthRequestChallengeEvm();
 
   async function handleSmartContract() {
     await handleAuth();
@@ -37,6 +42,21 @@ export default function LaunchpadItem() {
 
     const { account, chain } = await connectAsync({
       connector: new MetaMaskConnector(),
+    });
+
+    if(status === "authenticated") return;
+
+    const { message } = await requestChallengeAsync({
+      address: account,
+      chainId: chain.id,
+    });
+
+    const signature = await signMessageAsync({ message });
+		
+    await signIn("moralis-auth", {
+      message,
+      signature,
+      redirect: false,
     });
   };
 

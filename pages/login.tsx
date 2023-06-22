@@ -45,9 +45,16 @@ function SignIn() {
   };
 
   return (
-    <div>
-      <h3>Web3 Authentication</h3>
-      <button onClick={handleAuth}>Authenticate via Metamask</button>
+    <div className="appWrapper loginWrapper">
+      <div className="loginForm">
+        <div className="logo">
+          <img src="logo_white.png" />
+        </div>
+        <p>Connect your wallet to manage your assets.</p>
+        <div className="connectButtons">
+          <button className="btn shadow-border" onClick={handleAuth}>Authenticate via Metamask</button>
+        </div>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import Head from '../components/Head';
 import Header from '../components/Header';
 import Link from 'next/link';
 
-export default function Home() {
+export default function Assets() {
   return (
     <>
       <Head />
