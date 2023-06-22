@@ -3,11 +3,11 @@ import '../styles/styles.scss';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 
 import { SessionProvider } from 'next-auth/react';
-import { mainnet } from 'wagmi/chains';
+import { mainnet, sepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
-const { publicClient, webSocketPublicClient } = configureChains([mainnet], [publicProvider()]);
+const { publicClient, webSocketPublicClient } = configureChains([sepolia], [publicProvider()]);
 
 const config = createConfig({
   autoConnect: true,

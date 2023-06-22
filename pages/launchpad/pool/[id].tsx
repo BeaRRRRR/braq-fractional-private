@@ -17,12 +17,14 @@ import {pools} from "@/mock/pools";
 import {abi} from "@/mock/abi"
 import { signIn, useSession } from 'next-auth/react';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
+import { parseEther } from 'viem';
 
 export default function LaunchpadItem() {
+  const [value, setValue] = useState(0.25);
   const router = useRouter();
   const { address, connector, isConnected } = useAccount();
   const { status } = useSession();
-  console.log(isConnected, address)
+  console.log(isConnected, address, value)
 
   const { connectAsync } = useConnect();
   const { disconnectAsync } = useDisconnect();
@@ -59,7 +61,6 @@ export default function LaunchpadItem() {
     });
   };
 
-
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
   //TODO: fix and all normal typeings
@@ -67,6 +68,7 @@ export default function LaunchpadItem() {
     address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634' as never,
     abi: abi.abi as never,
     functionName: 'publicSale' as never,
+    value: parseEther(`${value}`) as never,
     onSuccess(data) {
       console.log(data);
     }
@@ -166,6 +168,8 @@ export default function LaunchpadItem() {
                         </div>
                       </div>
                       <div className="right">
+                        <input type="number" step="0.01" min="0.25" value={value} onChange={(e) => setValue(e.target.value as unknown as number)}></input>
+                        <p>The mimimum amount for purchase is 0.25eth</p>
                         <button onClick={() => handleSmartContract()}>Buy</button>
                         {isLoading && <div>Check Wallet</div>}
                         {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
