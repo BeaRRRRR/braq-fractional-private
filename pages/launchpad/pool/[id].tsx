@@ -70,7 +70,7 @@ export default function LaunchpadItem() {
     functionName: 'publicSale' as never,
     value: parseEther(`${value}`) as never,
     onSuccess(data) {
-      console.log(data);
+      console.log(data)
     }
   });
 
