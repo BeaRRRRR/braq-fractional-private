@@ -22,8 +22,10 @@ import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
 
 export default function LaunchpadItem() {
+  const ethToBraq = 16_666;
+
   const [ethValue, setEthValue] = useState(0.25);
-  const [braqValue, setBraqValue] = useState(0.25 * 20_000);
+  const [braqValue, setBraqValue] = useState(0.25 * ethToBraq);
   const router = useRouter();
   const { address, connector, isConnected } = useAccount();
   const { status } = useSession();
@@ -79,7 +81,7 @@ export default function LaunchpadItem() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const eth = e.target.value as unknown as number;
     setEthValue(eth);
-    setBraqValue(eth * 20_000);
+    setBraqValue(eth * ethToBraq);
   };
 
   return (
