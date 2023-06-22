@@ -2,29 +2,31 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
-import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-
-
-import { useAccount, useConnect, useContractWrite, useDisconnect, usePrepareContractWrite, useSignMessage } from 'wagmi';
-
+import { signIn, useSession } from 'next-auth/react';
+import {
+  useAccount,
+  useConnect,
+  useContractWrite,
+  useDisconnect,
+  usePrepareContractWrite,
+  useSignMessage,
+} from 'wagmi';
 
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiCheckCircle } from 'react-icons/fi';
-
-import { useRouter } from 'next/router';
-import {pools} from "@/mock/pools";
-
-import {abi} from "@/mock/abi"
-import { signIn, useSession } from 'next-auth/react';
-import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { abi } from '@/mock/abi';
 import { parseEther } from 'viem';
+import { pools } from '@/mock/pools';
+import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
+import { useRouter } from 'next/router';
 
 export default function LaunchpadItem() {
-  const [value, setValue] = useState(0.25);
+  const [ethValue, setEthValue] = useState(0.25);
+  const [braqValue, setBraqValue] = useState(0.25 * 20_000);
   const router = useRouter();
   const { address, connector, isConnected } = useAccount();
   const { status } = useSession();
-  console.log(isConnected, address, value)
 
   const { connectAsync } = useConnect();
   const { disconnectAsync } = useDisconnect();
@@ -33,7 +35,7 @@ export default function LaunchpadItem() {
 
   async function handleSmartContract() {
     await handleAuth();
-    write()
+    write();
   }
 
   const handleAuth = async () => {
@@ -45,7 +47,7 @@ export default function LaunchpadItem() {
       connector: new MetaMaskConnector(),
     });
 
-    if(status === "authenticated") return;
+    if (status === 'authenticated') return;
 
     const { message } = await requestChallengeAsync({
       address: account,
@@ -53,8 +55,8 @@ export default function LaunchpadItem() {
     });
 
     const signature = await signMessageAsync({ message });
-		
-    await signIn("moralis-auth", {
+
+    await signIn('moralis-auth', {
       message,
       signature,
       redirect: false,
@@ -68,11 +70,17 @@ export default function LaunchpadItem() {
     address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634' as never,
     abi: abi.abi as never,
     functionName: 'publicSale' as never,
-    value: parseEther(`${value}`) as never,
+    value: parseEther(`${ethValue}`) as never,
     onSuccess(data) {
-      console.log(data)
-    }
+      alert(`Successful! Hash: ${data.hash}`);
+    },
   });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const eth = e.target.value as unknown as number;
+    setEthValue(eth);
+    setBraqValue(eth * 20_000);
+  };
 
   return (
     <>
@@ -167,12 +175,37 @@ export default function LaunchpadItem() {
                           </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div className="third">
+                      <div className="top">
+                        <span>AMOUNT USED:</span>
+                        <div className="inpt">
+                          <input value={ethValue} onChange={(e) => handleInputChange(e)}></input>
+                          <span>ETH</span>
+                        </div>
+                      </div>
+                      <div className="bottom">
+                        <span>YOU PURCHASE:</span>
+                        <div className="inpt">
+                          <input className="braq" disabled={true} value={braqValue}></input>
+                          <span>BRAQ</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="second">
+                      {/* <div className="left">
+                        <span className="buyTokens">BUY TOKENS</span>
+                        <span className="available">
+                          <img src="/launchpad/pool/braqtoken.png"></img>
+                          1,875,000 $BRAQ AVAILABLE
+                        </span>
+                      </div> */}
                       <div className="right">
-                        <input type="number" step="0.01" min="0.25" value={value} onChange={(e) => setValue(e.target.value as unknown as number)}></input>
-                        <p>The mimimum amount for purchase is 0.25eth</p>
-                        <button onClick={() => handleSmartContract()}>Buy</button>
-                        {isLoading && <div>Check Wallet</div>}
-                        {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
+                        <button onClick={() => handleSmartContract()} className="gradient-button">
+                          BUY TOKENS
+                          <div className="shine"></div>
+                        </button>
                       </div>
                     </div>
                   </div>
