@@ -136,11 +136,19 @@ export default function LaunchpadItem() {
                     <div className="launchpadIcons">
                       <div style={{ paddingRight: '24px' }}>
                         <img src="/launchpad/pool/website.png" />
-                        <span>WEBSITE</span>
+                        <span>
+                          <a href="https://braq.io" target="_blank">
+                            WEBSITE
+                          </a>
+                        </span>
                       </div>
                       <div>
                         <img src="/launchpad/pool/whitepaper.png" />
-                        <span>WHITEPAPER</span>
+                        <span>
+                          <a href="https://docs.braq.io" target="_blank">
+                            WHITEPAPER
+                          </a>
+                        </span>
                       </div>
                     </div>
                   </div>
