@@ -7,7 +7,7 @@ import { mainnet, sepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 
-const { publicClient, webSocketPublicClient } = configureChains([sepolia], [publicProvider()]);
+const { publicClient, webSocketPublicClient } = configureChains([mainnet], [publicProvider()]);
 
 const config = createConfig({
   autoConnect: true,
