@@ -1,29 +1,21 @@
 import { AiOutlinePoweroff, AiOutlineWallet } from 'react-icons/ai';
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import { connect, signTransaction } from '@joyid/evm';
-import { useContext, useEffect } from 'react';
 
-import AppContext from '../components/AppContext';
 import { FaRegUserCircle } from 'react-icons/fa';
 import Head from 'next/head';
-import Link from 'next/link';
 import { parseEther } from 'ethers/lib/utils';
 import { useState } from 'react';
+import { useBoundStore } from '@/store/store';
+import { useAccount } from "wagmi";
+import Link from 'next/link';
 
 export default function Header() {
-  const context = useContext(AppContext);
-  let address = '';
+  const { address } = useAccount();
 
-  if (context?.userData?.address) {
-    let long_address = context.userData.address;
-    address = `${long_address.slice(0, 4)}...${long_address.slice(-4)}`;
-  }
-
-  const itemCount = context.userData.itemCount;
+  const itemCount = useBoundStore((store) => store.itemCount); 
   const [toAddress, setToAddress] = useState('0x6f9e2777D267FAe69b0C5A24a402D14DA1fBcaA1');
   const [amount, setAmount] = useState('0.01');
-  const [joyidInfo, setJoyidInfo] = useState(null);
-
   const [modalShow, setModalShow] = useState(false);
 
   const onOpenModal = () => {
@@ -97,7 +89,7 @@ export default function Header() {
         <Col className="textRight">
           <Button
             onClick={onOpenModal}
-            disabled={context.userData.system === 'metamask'}
+            disabled={true}
             variant="primary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +116,7 @@ export default function Header() {
           <Dropdown>
             <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic" drop="end">
               <AiOutlineWallet />
-              {address}
+              {address?.slice(0, 4)}...{address?.slice(-4)}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

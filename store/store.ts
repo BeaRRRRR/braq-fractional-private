@@ -1,7 +1,9 @@
 import { create } from 'zustand'
-import { createUserDataSlice } from './userDataSlice'
+import { createUserDataSlice, UserDataStore } from './userDataSlice'
 
-export const useBoundStore = create((...a) => ({
+interface Store extends UserDataStore {}
+
+export const useBoundStore = create<Store>((...a) => ({
   ...createUserDataSlice(...a),
 }))
 

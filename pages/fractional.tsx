@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Link from 'next/link';
 import SlidingPane from 'react-sliding-pane';
 import { useContext } from 'react';
+import { useBoundStore } from '@/store/store';
 
 export default function Home() {
   const [state, setState] = useState({
@@ -17,10 +18,11 @@ export default function Home() {
   });
 
   const [isMonkey, setIsMonkey] = useState(false);
-  const context = useContext(AppContext);
+  const itemCount = useBoundStore((store) => store.itemCount);
+  const setItemCount = useBoundStore((store) => store.setItemCount)
 
   const increaseItems = () => {
-    context.userData.itemCount++;
+    setItemCount(itemCount + 1)
   };
 
   return (
