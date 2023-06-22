@@ -35,7 +35,7 @@ function SignIn() {
       message,
       signature,
       redirect: false,
-      callbackUrl: "/profile",
+      callbackUrl: "/",
     });
     /**
      * instead of using signIn(..., redirect: "/user")

@@ -5,6 +5,7 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import Head from '../components/Head';
 import Header from '../components/Header';
 import Link from 'next/link';
+import { getSession } from 'next-auth/react';
 
 export default function Assets() {
   return (
@@ -99,4 +100,23 @@ export default function Assets() {
       </div>
     </>
   );
+}
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  // redirect if not authenticated
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {}
+  };
 }

@@ -1,4 +1,5 @@
-import { getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from './api/auth/[...nextauth]';
 
 export default function Home() {
   return (
@@ -8,10 +9,10 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
-  const session = getSession(context);
+  const session = getServerSession(context.req, context.res, authOptions);
 
   // redirect if not authenticated
-  if (!session) {
+  if (!session || session == null) {
     return {
       redirect: {
         destination: "/login",
