@@ -4,12 +4,9 @@ import { AiOutlineClose, AiOutlineWallet } from 'react-icons/ai';
 import { Button, Col, Container, ProgressBar, Row } from 'react-bootstrap';
 import React, { Component, useState } from 'react';
 
-import AppContext from '@/components/AppContext';
 import Head from '../components/Head';
 import Header from '../components/Header';
-import Link from 'next/link';
 import SlidingPane from 'react-sliding-pane';
-import { useContext } from 'react';
 import { useBoundStore } from '@/store/store';
 
 export default function Home() {

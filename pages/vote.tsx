@@ -4,8 +4,8 @@ import { Button, Container, Row, Col, Tab, Nav, Card, Badge, Form, ButtonGroup, 
 import { AiOutlineWallet, AiOutlineClose, AiOutlineClockCircle } from "react-icons/ai";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import Head from '../components/head';
-import Header from '../components/header'
+import Head from '../components/Head';
+import Header from '../components/Header'
 
 export default function Home() {
   const [state, setState] = useState({
@@ -42,7 +42,7 @@ export default function Home() {
                                 0x6e....4dF0
                               </div>
                               <div>
-                                <Badge pill bg="success" size="lg">Active</Badge>
+                                <Badge pill bg="success">Active</Badge>
                               </div>
                             </Card.Header>
                             <Card.Body>
@@ -65,7 +65,7 @@ export default function Home() {
                                 0x6e....4dF0
                               </div>
                               <div>
-                                <Badge pill bg="success" size="lg">Active</Badge>
+                                <Badge pill bg="success">Active</Badge>
                               </div>
                             </Card.Header>
                             <Card.Body>
@@ -88,7 +88,7 @@ export default function Home() {
                                 0x6e....4dF0
                               </div>
                               <div>
-                                <Badge pill bg="success" size="lg">Active</Badge>
+                                <Badge pill bg="success" >Active</Badge>
                               </div>
                             </Card.Header>
                             <Card.Body>
@@ -111,7 +111,7 @@ export default function Home() {
                                 0x6e....4dF0
                               </div>
                               <div>
-                                <Badge pill bg="success" size="lg">Active</Badge>
+                                <Badge pill bg="success">Active</Badge>
                               </div>
                             </Card.Header>
                             <Card.Body>

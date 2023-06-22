@@ -10,7 +10,6 @@ import { useAccount, useConnect, useContractWrite, useDisconnect, usePrepareCont
 
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiCheckCircle } from 'react-icons/fi';
-import Head from 'next/head';
 
 import { useRouter } from 'next/router';
 import {pools} from "@/mock/pools";
@@ -63,10 +62,11 @@ export default function LaunchpadItem() {
 
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
+  //TODO: fix and all normal typeings
   const { data, isLoading, isSuccess, write } = useContractWrite({
-    address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634',
-    abi: abi.abi,
-    functionName: 'publicSale',
+    address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634' as never,
+    abi: abi.abi as never,
+    functionName: 'publicSale' as never,
     onSuccess(data) {
       console.log(data);
     }
@@ -74,7 +74,6 @@ export default function LaunchpadItem() {
 
   return (
     <>
-      <Head />
       <div className="appWrapper">
         <Container fluid>
           <Row className="pageHeaderLaunchpad" style={{ backgroundColor: '#1E184C' }}>

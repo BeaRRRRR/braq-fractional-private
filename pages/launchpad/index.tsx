@@ -4,8 +4,8 @@ import {} from 'react-icons/ai';
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
 
-import Head from '@/components/head';
-import Pool from '@/components/pool';
+import Head from '@/components/Head';
+import Pool from '@/components/Pool';
 import { pools } from '../../mock/pools';
 
 export default function Launchpad() {

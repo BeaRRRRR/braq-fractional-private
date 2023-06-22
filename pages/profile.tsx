@@ -5,8 +5,8 @@ import { FiTwitter } from 'react-icons/fi';
 import { FaPencilAlt } from 'react-icons/fa';
 import { RxDiscordLogo } from 'react-icons/rx';
 import { VscDebugDisconnect } from 'react-icons/vsc';
-import Head from '@/components/head';
-import Header from '@/components/header';
+import Head from '@/components/Head';
+import Header from '@/components/Header';
 import { useState } from "react";
 import { useAccount } from "wagmi";
 
