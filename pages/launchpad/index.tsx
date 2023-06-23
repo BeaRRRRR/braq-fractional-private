@@ -5,9 +5,13 @@ import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
 
 import Head from '@/components/Head';
-import Pool from '@/components/Pool';
 import { isMobile } from 'react-device-detect';
 import { pools } from '../../mock/pools';
+import dynamic from 'next/dynamic';
+
+const DynamicPool = dynamic(() => import('@/components/Pool'), {
+  ssr: false,
+})
 
 export default function Launchpad() {
   return (
@@ -58,7 +62,7 @@ export default function Launchpad() {
             <h1>LAUNCH POOLS</h1>
             {pools.map((pool) => {
               return (
-                <Pool
+                <DynamicPool
                   id={pool.id}
                   image={pool.image}
                   progress={pool.progress}
