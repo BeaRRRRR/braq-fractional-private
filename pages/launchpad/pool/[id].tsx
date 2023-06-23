@@ -46,6 +46,7 @@ export default function LaunchpadItem() {
     setEthValue(eth);
     setBraqValue(eth * ethToBraq);
   };
+  console.log(balance);
 
   return (
     <>
