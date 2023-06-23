@@ -1514,7 +1514,28 @@ input[type="number"] {
 	-moz-appearance: textfield;
 }
 
+.in-progress {
+	padding-right: 10px;
+}
+
+.pool-card .pool-info__topbar {
+	justify-content: end;
+}
+
 @media (max-width: 1199px) {
+
+
+	.launchpoolsContainer {
+		padding: 2% 5%;
+	}
+
+	.pool-card .pool-info__main-element__right-info span {
+		font-size: 12px;
+	}
+
+	.pool-card .pool-info__main-element__right-info .bold {
+		font-size: 12px;
+	}
 
 	.pool-info__main .pool-info__main-element img {
 		width: 32px;
@@ -1556,6 +1577,8 @@ input[type="number"] {
 }
 
 @media (max-width: 767px) {
+
+
 
 	.pool-card .pool-info__main {
 		padding: 8%;
@@ -1653,6 +1676,52 @@ input[type="number"] {
 
 @media (max-width: 600px) {
 
+
+	.launchpoolsContainer h1 {
+		font-size: 24px;
+	}
+
+	.pool-card {
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		/* Add this property to make it occupy full width */
+		padding: 0;
+		/* Remove the top padding */
+
+		.pool-image {
+			flex: none;
+			/* Remove the flex property */
+			max-width: 100%;
+			object-fit: cover;
+			/* Make it occupy the full width */
+		}
+
+		.pool-info__topbar {
+			justify-content: center;
+			text-align: center;
+		}
+
+		.pool-info {
+			padding: 0;
+			/* Remove the left padding */
+			flex: none;
+			/* Remove the flex property */
+			width: 100%;
+
+			/* Make it occupy the full width */
+			span {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.pool-info__topbar {
+		margin-bottom: 0;
+		/* Remove the bottom margin */
+	}
+
+
 	.imageContainer {
 		height: 10vh;
 	}
@@ -1663,20 +1732,19 @@ input[type="number"] {
 		align-items: center;
 
 		.pool-info {
-			width: 40%;
-			flex-direction: column-reverse;
+			width: 100%;
 
 		}
 	}
 
 	.pool-card .pool-image {
-		flex: 0 0 50%;
-		max-width: 50%;
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 
 	.pool-image {
 		padding-bottom: 10px;
-		width: 50%;
+		width: 100%;
 	}
 
 
