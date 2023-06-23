@@ -17,6 +17,7 @@ export default function Pool({ id, image, progress, hardcap, amount, price, inPr
                 <span>COMPLETED</span>
               )}
               <span>{/* {progress[0]}/{progress[1]} ETH */}</span>
+              <span>{`${isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''}launchpad/pool/${id}`}</span>
             </div>
             <div className="pool-info__main">
               <div className="pool-info__main-element">
