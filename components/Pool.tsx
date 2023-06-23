@@ -1,23 +1,22 @@
 import { BiChevronRightCircle } from 'react-icons/bi';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { isMobile } from 'react-device-detect';
+import { redirect } from 'next/navigation';
+import useGetAddressBalance from '@/hooks/useGetAddressBalance';
 
 export default function Pool({ id, image, progress, hardcap, amount, price, inProgress }) {
+  const balance = (useGetAddressBalance() / 10 ** 18).toFixed(2);
   return (
-    <Link href={`${isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''}launchpad/pool/${id}`}>
+    <Link
+      href={`${
+        isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''
+      }launchpad/pool/${id}`}>
       <div className="pool">
         <div className="pool-card">
           <img className="pool-image" src={image}></img>
           <div className="pool-info">
             <div className="pool-info__topbar" style={{ justifyContent: 'end' }}>
-              {inProgress ? (
-                <span style={{ color: '#0BFD9D' }}>IN PROGRESS</span>
-              ) : (
-                <span>COMPLETED</span>
-              )}
-              <span>{/* {progress[0]}/{progress[1]} ETH */}</span>
-              <span>{`${isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''}launchpad/pool/${id}`}</span>
+              {inProgress ? <span>{balance} / 200 IN PROGRESS</span> : <span>COMPLETED</span>}
             </div>
             <div className="pool-info__main">
               <div className="pool-info__main-element">

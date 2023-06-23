@@ -134,7 +134,7 @@ a {
 		border-color: $primaryColor !important;
 		box-shadow: none;
 		opacity: 0.9;
-		color: $secondaryColor !important;
+
 
 		&:focus {
 			box-shadow: none;
@@ -1052,7 +1052,9 @@ h5 {
 	}
 }
 
+
 .pool-card {
+
 	display: flex;
 	align-items: center;
 
@@ -1225,8 +1227,13 @@ h5 {
 			}
 		}
 
+		span {
+			cursor: pointer;
+		}
+
 		svg {
 			margin-right: 5px;
+			cursor: pointer;
 		}
 	}
 }
@@ -1367,6 +1374,7 @@ h5 {
 				padding-top: 12px;
 
 				.gradient-button {
+					color: white;
 					width: 180px;
 					height: 40px;
 					position: relative;
@@ -1508,6 +1516,29 @@ input[type="number"] {
 
 @media (max-width: 1199px) {
 
+	.pool-info__main .pool-info__main-element img {
+		width: 32px;
+		height: 32px;
+	}
+
+	.pool-card .pool-info__main {
+		padding: 8%;
+	}
+
+	.imageContainer {
+		height: 20vh;
+	}
+
+	.launchpoolsContainer {
+		h1 {
+			font-size: 24px;
+		}
+	}
+
+	.pool {
+		font-size: 16px
+	}
+
 	.rightBlock .mainContent .third input {
 		width: 100px;
 	}
@@ -1525,6 +1556,36 @@ input[type="number"] {
 }
 
 @media (max-width: 767px) {
+
+	.pool-card .pool-info__main {
+		padding: 8%;
+	}
+
+	.launchpoolsContainer {
+		padding: 2% 4%;
+	}
+
+	.pool {
+		.pool-card .pool-info__topbar {
+			span {
+				font-size: 10px;
+			}
+		}
+
+		.pool-footer {
+			span {
+				font-size: 12px;
+			}
+		}
+
+		.pool-card .pool-info__main {
+			span {
+				font-size: 10px;
+			}
+
+		}
+	}
+
 
 	.rightBlock .mainContent .third input {
 		width: 80px;
@@ -1583,9 +1644,60 @@ input[type="number"] {
 	.rightBlock .mainContent .third {
 		margin: 0;
 	}
+
+	.pool-info__main .pool-info__main-element img {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.imageContainer {
+		height: 10vh;
+	}
+
+	.pool-card {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.pool-info {
+			width: 40%;
+			flex-direction: column-reverse;
+
+		}
+	}
+
+	.pool-card .pool-image {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+
+	.pool-image {
+		padding-bottom: 10px;
+		width: 50%;
+	}
+
+
+
+	.pool-card .pool-info__main {
+		flex-direction: column;
+
+		div {
+			padding-bottom: 10px;
+		}
+	}
+
+	.pool-footer {
+		justify-content: center;
+	}
+
 }
 
 @media (max-width: 400px) {
+
+
 	.rightBlock .mainContent .third input {
 		width: 64px;
 	}
@@ -1603,4 +1715,10 @@ input[type="number"] {
 		height: 32px;
 
 	}
+
+	.pool-info__main .pool-info__main-element img {
+		width: 12px;
+		height: 12px;
+	}
+
 }

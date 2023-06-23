@@ -1,7 +1,8 @@
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import { Button, Col, Container, Dropdown, Form, Modal, Row } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 import {
   useAccount,
   useConnect,
@@ -12,10 +13,16 @@ import {
 } from 'wagmi';
 
 import { BsArrowLeft } from 'react-icons/bs';
+import { FiCheckCircle } from 'react-icons/fi';
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+import { abi } from '@/mock/abi';
+import { parseEther } from 'viem';
 import { pools } from '@/mock/pools';
-import { useRouter } from 'next/router';
-import useMetamaskSdk from '@/hooks/useMetamaskSdk';
+import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import useGetAddressBalance from '@/hooks/useGetAddressBalance';
+import useMetamaskSdk from '@/hooks/useMetamaskSdk';
+import { useRouter } from 'next/router';
 
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
@@ -31,7 +38,7 @@ export default function LaunchpadItem() {
 
   async function onBuy(skip = false) {
     const transaction = await requestToken(`${ethValue}`);
-    setTransaction(transaction)
+    setTransaction(transaction);
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +49,6 @@ export default function LaunchpadItem() {
 
   return (
     <>
-      <p>Amount sold: ${balance}</p>
       <div className="appWrapper">
         <Container fluid>
           <Row className="pageHeaderLaunchpad" style={{ backgroundColor: '#1E184C' }}>
