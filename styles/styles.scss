@@ -1201,7 +1201,9 @@ h5 {
 
 
 
-
+.main-pool-info {
+	padding-bottom: 24px;
+}
 
 
 
@@ -1212,6 +1214,59 @@ h5 {
 
 
 .launchpoolContainer {
+
+	.bottom-info {
+		padding: 20px;
+		background-color: $secondaryColor;
+		min-height: 50%;
+		color: $whiteColor;
+
+		.launchpool-info {
+			.addreses {
+				padding-bottom: 24px;
+				display: flex;
+				flex-direction: row;
+
+				.bold {
+					cursor: pointer;
+					font-weight: 800;
+				}
+
+				.token-address {
+					display: flex;
+					flex-direction: column;
+					padding-right: 24px;
+				}
+
+
+				.pool-address {
+					display: flex;
+					flex-direction: column;
+
+				}
+			}
+		}
+
+		.minimum-contribution {
+			display: flex;
+			flex-direction: column;
+
+			.bold {
+				font-weight: 800;
+
+			}
+
+			padding-bottom: 24px;
+		}
+
+		h3 {
+			color: $whiteColor;
+			font-size: 16px;
+			padding-bottom: 24px;
+
+		}
+	}
+
 	padding: 2% 15%;
 
 	.back-btn {
@@ -1593,19 +1648,19 @@ input[type="number"] {
 	.pool {
 		.pool-card .pool-info__topbar {
 			span {
-				font-size: 10px;
+				font-size: 14px;
 			}
 		}
 
 		.pool-footer {
 			span {
-				font-size: 12px;
+				font-size: 14px;
 			}
 		}
 
 		.pool-card .pool-info__main {
 			span {
-				font-size: 10px;
+				font-size: 14px;
 			}
 
 		}
@@ -1622,7 +1677,7 @@ input[type="number"] {
 
 
 	.rightBlock .mainContent .first .left .iconContainer img {
-		width: 16px;
+		width: 32px;
 		height: 32px;
 
 	}
@@ -1647,8 +1702,9 @@ input[type="number"] {
 
 		img {
 
-			margin: 0;
-			width: 16px;
+
+			width: 32px;
+			height: 32px;
 		}
 	}
 
@@ -1769,13 +1825,16 @@ input[type="number"] {
 
 @media (max-width: 400px) {
 
+	.launchpoolContainer {
+		padding: 2% 5%;
+	}
 
 	.rightBlock .mainContent .third input {
 		width: 64px;
 	}
 
 	span {
-		font-size: 12px;
+		font-size: 16px;
 	}
 
 	.rightBlock .mainContent .third {
@@ -1783,14 +1842,14 @@ input[type="number"] {
 	}
 
 	.rightBlock .mainContent .first .left .iconContainer img {
-		width: 16px;
-		height: 32px;
+		width: 24px;
+		height: 24px;
 
 	}
 
 	.pool-info__main .pool-info__main-element img {
-		width: 12px;
-		height: 12px;
+		width: 24px;
+		height: 24px;
 	}
 
 }

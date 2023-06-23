@@ -19,6 +19,7 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { abi } from '@/mock/abi';
 import { parseEther } from 'viem';
 import { pools } from '@/mock/pools';
+import { shortenAddress } from '@/utils/shortenAddress';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import useGetAddressBalance from '@/hooks/useGetAddressBalance';
 import useMetamaskSdk from '@/hooks/useMetamaskSdk';
@@ -27,6 +28,8 @@ import { useRouter } from 'next/router';
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
 
+  const tokenAddress = '0x8675a1C67BD6e644155fC88a8E83Ee84A4a8a8f2';
+  const poolAddress = '0x875153E3e781BF4c8E03cE8cEED704a2796a16b4 ';
   const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
@@ -74,7 +77,7 @@ export default function LaunchpadItem() {
               <span>BACK</span>
             </div>
 
-            <Container fluid>
+            <Container fluid className="main-pool-info">
               <Row>
                 <Col md={4} className="left-block">
                   <div className="image-container">
@@ -121,7 +124,8 @@ export default function LaunchpadItem() {
                 </Col>
                 <Col md={8} className="rightBlock">
                   <div className="topbar">
-                    <span>IN PROGRESS</span>
+                    <span className="in-progress">IN PROGRESS</span>
+                    <span>({balance} / 200)</span>
                   </div>
                   <div className="mainContent">
                     <div className="first">
@@ -188,6 +192,58 @@ export default function LaunchpadItem() {
                   </div>
                 </Col>
               </Row>
+            </Container>
+            <Container fluid className="bottom-info">
+              <div className="launchpool-info">
+                <h3>LAUNCHPOOL INFO</h3>
+                <div className="addreses">
+                  <div className="token-address">
+                    <span>TOKEN ADDRESS</span>
+                    <span
+                      className="bold"
+                      onClick={() => {
+                        navigator.clipboard.writeText(tokenAddress);
+                        alert('Token address copied!');
+                      }}>
+                      {shortenAddress(tokenAddress)}
+                    </span>
+                  </div>
+                  <div className="pool-address">
+                    <span>POOL ADDRESS</span>
+                    <span
+                      className="bold"
+                      onClick={() => {
+                        navigator.clipboard.writeText(poolAddress);
+                        alert('Pool address copied!');
+                      }}>
+                      {shortenAddress(poolAddress)}
+                    </span>
+                  </div>
+                </div>
+                <div className="minimum-contribution">
+                  <span>MINIMUM CONTRIBUTION</span>
+                  <span className="bold">0.025 ETH</span>
+                </div>
+                <div className="text">
+                  <p>
+                    Anyone from the public will be eligible to participate in this launchpool. There
+                    will be a whitelist for all BRAQ and Partner NFT holders who will be able to
+                    participate in the sale at 0.00005 ETH per token. The minimum participation will
+                    be 0.05ETH.{' '}
+                  </p>
+                  <p>
+                    {' '}
+                    The sale will be held at a First Come, First Served basis. Once the Hard Cap is
+                    reached, the token sale will conclude. Participants will receive their token
+                    allocation in their wallet upon the conclusion of the sale and token trading
+                    will commence immediately.
+                  </p>{' '}
+                  <p>
+                    Join our Telegram or Discord for more information or reach out to us at
+                    admin@braq.io if you require any further assistance.
+                  </p>
+                </div>
+              </div>
             </Container>
           </Row>
         </Container>
