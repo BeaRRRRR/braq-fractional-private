@@ -1185,6 +1185,30 @@ h5 {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .launchpoolContainer {
 	padding: 2% 15%;
 
@@ -1193,7 +1217,6 @@ h5 {
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
-
 		padding-bottom: 24px;
 
 		.launchpool {
@@ -1209,16 +1232,13 @@ h5 {
 }
 
 .launchpoolImage {
-
 	flex: 0 0 100%;
 	max-width: 100%;
-
 }
 
 .left-bottom {
-
 	img {
-		width: 24px;
+		width: 16px;
 		margin-right: 8px;
 	}
 
@@ -1228,38 +1248,35 @@ h5 {
 		justify-content: start;
 		align-items: center;
 
-		&div {
+		& div {
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-
 		}
-
 	}
 }
 
 .left-block {
-
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-
 .rightBlock {
 	height: auto;
 
 	.topbar {
-
 		padding: 10px;
-		background-color: #1E184C;
+		background-color: #1e184c;
 		color: $whiteColor;
-		font-size: 18px;
-		font-weight: 800;
+		font-size: 16px;
+		font-weight: 700;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
+		justify-content: end;
 
 		svg {
 			margin-right: 10px;
@@ -1274,7 +1291,6 @@ h5 {
 		.first {
 			display: flex;
 			flex-direction: row;
-
 			justify-content: center;
 
 			.left {
@@ -1287,7 +1303,7 @@ h5 {
 					padding: 10px;
 					display: flex;
 					flex-direction: row;
-
+					align-items: center;
 
 					.iconContainerText {
 						padding: 10px;
@@ -1297,75 +1313,68 @@ h5 {
 					}
 
 					img {
-						margin: 16px;
 						width: 32px;
 					}
 
 					&__right-info {
-						padding-left: 15px;
+						padding-left: 12px;
 						display: flex;
 						flex-direction: column;
 						align-items: center;
 						justify-content: center;
 
 						span {
-							font-size: 0.8rem;
+							font-size: 0.7rem;
 						}
 
 						.bold {
-							font-weight: 800;
-							font-size: 0.9rem;
+							font-weight: 700;
+							font-size: 0.8rem;
 						}
 					}
 				}
 			}
-
-
 		}
 
 		.second {
 			display: flex;
 			flex-direction: row;
-
 			justify-content: space-around;
 			align-items: center;
 			padding-top: 24px;
 
 			.left {
-				padding: 20px;
-				font-weight: 800;
-				font-size: 0.9rem;
+				padding: 16px;
+				font-weight: 700;
+				font-size: 0.8rem;
 
 				.buyTokens {
-					padding-top: 32px;
-					padding-bottom: 12px;
+					padding-top: 24px;
+					padding-bottom: 8px;
 				}
 
 				img {
-
-					margin-right: 12px;
-					width: 32px;
+					margin-right: 8px;
+					width: 24px;
 				}
 
 				display: flex;
 				flex-direction: column;
-				justify-content:center;
+				justify-content: center;
 			}
 
 			.right {
-
-				padding-top: 16px;
+				padding-top: 12px;
 
 				.gradient-button {
-					width: 200px;
-					height: 45px;
+					width: 180px;
+					height: 40px;
 					position: relative;
 					display: inline-block;
-					padding: 12px 24px;
+					padding: 10px 20px;
 					border-radius: 50px;
 					background: linear-gradient(to bottom, #bd68d4, #3a25ae);
-					color: #fff;
-					font-size: 16px;
+					font-size: 14px;
 					font-weight: bold;
 					overflow: hidden;
 					border: none;
@@ -1394,24 +1403,22 @@ h5 {
 						left: 100%;
 					}
 				}
-
 			}
 
-			padding-top: 16px;
-			padding-bottom: 32px;
+			padding-top: 12px;
+			padding-bottom: 24px;
 		}
 
 		.third {
 			border: 2px solid $whiteColor;
 			display: flex;
 			flex-direction: column;
-			margin: 10px 100px;
-
+			margin: 10px 80px;
 
 			input {
 				color: $whiteColor;
 				text-align: center;
-				max-width: 64px;
+				max-width: 128px;
 				appearance: none;
 				border: 1px white dotted;
 				background: none;
@@ -1431,30 +1438,24 @@ h5 {
 				justify-content: baseline;
 
 				span {
-					padding-left: 8px;
+					padding-left: 6px;
 				}
 			}
-
 
 			.top {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
-				padding: 16px;
-
-
+				padding: 12px;
 			}
 
 			.bottom {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
-				padding: 16px;
-
-
+				padding: 12px;
 			}
 		}
-
 	}
 }
 
@@ -1490,7 +1491,6 @@ h5 {
 	color: white;
 }
 
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
@@ -1502,7 +1502,105 @@ input[type="number"] {
 }
 
 .numeric-input {
-
 	-webkit-appearance: none;
 	-moz-appearance: textfield;
+}
+
+@media (max-width: 1199px) {
+
+	.rightBlock .mainContent .third input {
+		width: 100px;
+	}
+
+	/* Adjust image size on tablets */
+	.launchpoolImage img,
+	.left-bottom img,
+	.iconContainer img {
+		width: 24px;
+	}
+
+	.rightBlock .mainContent .third {
+		margin: 16px 32px;
+	}
+}
+
+@media (max-width: 767px) {
+
+	.rightBlock .mainContent .third input {
+		width: 80px;
+	}
+
+	span {
+		font-size: 14px;
+	}
+
+
+	.rightBlock .mainContent .first .left .iconContainer img {
+		width: 16px;
+		height: 32px;
+
+	}
+
+	.rightBlock {
+		padding-top: 32px;
+
+		.topbar {
+			justify-content: center;
+		}
+	}
+
+	/* Adjust image size on phones */
+	.launchpoolImage img,
+	.left-bottom img,
+	.iconContainer img {
+		width: 16px;
+	}
+
+	.iconContainer {
+
+
+		img {
+
+			margin: 0;
+			width: 16px;
+		}
+	}
+
+	/* Remove white border on phones */
+	.launchpoolContainer {
+		border: none;
+	}
+
+	.third {
+		border: none;
+		margin: 10px 40px;
+	}
+
+	.rightBlock .mainContent .third {
+		border: none;
+	}
+
+	.rightBlock .mainContent .third {
+		margin: 0;
+	}
+}
+
+@media (max-width: 400px) {
+	.rightBlock .mainContent .third input {
+		width: 64px;
+	}
+
+	span {
+		font-size: 12px;
+	}
+
+	.rightBlock .mainContent .third {
+		border: none;
+	}
+
+	.rightBlock .mainContent .first .left .iconContainer img {
+		width: 16px;
+		height: 32px;
+
+	}
 }

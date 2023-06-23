@@ -1,6 +1,6 @@
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
-import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Container, Dropdown, Form, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import {
@@ -120,7 +120,7 @@ export default function LaunchpadItem() {
                   </div>
                 </Col>
                 <Col md={8} className="rightBlock">
-                  <div className="topbar" style={{ justifyContent: 'end' }}>
+                  <div className="topbar">
                     <span>IN PROGRESS</span>
                   </div>
                   <div className="mainContent">
