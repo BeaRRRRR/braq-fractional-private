@@ -3,6 +3,7 @@ import {} from 'react-icons/ai';
 
 import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 
 import Head from '@/components/Head';
 import Pool from '@/components/Pool';
@@ -13,6 +14,7 @@ export default function Launchpad() {
   return (
     <>
       <Head />
+      <p>IS MOBILE: {isMobile + ''}</p>
       <div className="appWrapper">
         <Container fluid>
           <Row className="pageHeaderLaunchpad" style={{ backgroundColor: '#1E184C' }}>
