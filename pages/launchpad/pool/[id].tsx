@@ -30,7 +30,7 @@ export default function LaunchpadItem() {
 
   const tokenAddress = '0x30885DDA7062A9c0a41B9bCE631C35f1f5f7338c';
   const poolAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
-
+  console.log(poolAddress);
   const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
