@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <>
       <Modal show={modalShow} onHide={onCloseModal}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton >
           <Modal.Title>Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modalBody">

@@ -61,7 +61,7 @@ function SignIn() {
         </div>
         <p>Connect your wallet to manage your assets.</p>
         <div className="connectButtons">
-          {!isMobile && <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>}
+          <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>
           <button className="btn shadow-border" onClick={() => handleAuth('walletconnect')}>Authenticate via WalletConnect</button>
         </div>
       </div>
