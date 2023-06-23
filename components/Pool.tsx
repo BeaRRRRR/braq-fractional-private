@@ -12,7 +12,6 @@ export default function Pool({ id, image, progress, hardcap, amount, price, inPr
         isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''
       }launchpad/pool/${id}`}>
       <div className="pool">
-        <p>IS MOBILE: {isMobile + ''}</p>
         <div className="pool-card">
           <img className="pool-image" src={image}></img>
           <div className="pool-info">
