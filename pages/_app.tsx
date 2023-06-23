@@ -1,9 +1,9 @@
 import '../styles/styles.scss';
 
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
+import { mainnet, sepolia } from 'wagmi/chains';
 
 import { SessionProvider } from 'next-auth/react';
-import { mainnet, sepolia } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig config={config}>
       <SessionProvider session={pageProps.session} refetchInterval={0}>
-          <Component {...pageProps} />
+        <Component {...pageProps} />
       </SessionProvider>
     </WagmiConfig>
   );

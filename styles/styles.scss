@@ -95,6 +95,7 @@ a {
 	border-radius: 20px !important;
 	cursor: pointer !important;
 
+
 	svg {
 		font-size: 1.5em;
 		position: relative;
@@ -1274,7 +1275,7 @@ h5 {
 			display: flex;
 			flex-direction: row;
 
-			justify-content: space-between;
+			justify-content: center;
 
 			.left {
 				padding: 20px;
@@ -1319,11 +1320,189 @@ h5 {
 				}
 			}
 
-			.right {}
 
-			.right {}
 		}
 
-		.second {}
+		.second {
+			display: flex;
+			flex-direction: row;
+
+			justify-content: space-around;
+			align-items: center;
+			padding-top: 24px;
+
+			.left {
+				padding: 20px;
+				font-weight: 800;
+				font-size: 0.9rem;
+
+				.buyTokens {
+					padding-top: 32px;
+					padding-bottom: 12px;
+				}
+
+				img {
+
+					margin-right: 12px;
+					width: 32px;
+				}
+
+				display: flex;
+				flex-direction: column;
+				justify-content:center;
+			}
+
+			.right {
+
+				padding-top: 16px;
+
+				.gradient-button {
+					width: 200px;
+					height: 45px;
+					position: relative;
+					display: inline-block;
+					padding: 12px 24px;
+					border-radius: 50px;
+					background: linear-gradient(to bottom, #bd68d4, #3a25ae);
+					color: #fff;
+					font-size: 16px;
+					font-weight: bold;
+					overflow: hidden;
+					border: none;
+				}
+
+				.gradient-button .shine {
+					position: absolute;
+					top: 0;
+					left: -100%;
+					width: 200%;
+					height: 100%;
+					background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+					animation: shine 2s infinite;
+				}
+
+				@keyframes shine {
+					0% {
+						left: -100%;
+					}
+
+					50% {
+						left: 100%;
+					}
+
+					100% {
+						left: 100%;
+					}
+				}
+
+			}
+
+			padding-top: 16px;
+			padding-bottom: 32px;
+		}
+
+		.third {
+			border: 2px solid $whiteColor;
+			display: flex;
+			flex-direction: column;
+			margin: 10px 100px;
+
+
+			input {
+				color: $whiteColor;
+				text-align: center;
+				max-width: 64px;
+				appearance: none;
+				border: 1px white dotted;
+				background: none;
+				padding: 0;
+				margin: 0;
+				outline: none;
+			}
+
+			.braq {
+				border: none;
+			}
+
+			.inpt {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: baseline;
+
+				span {
+					padding-left: 8px;
+				}
+			}
+
+
+			.top {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				padding: 16px;
+
+
+			}
+
+			.bottom {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				padding: 16px;
+
+
+			}
+		}
+
 	}
+}
+
+::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: white;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: white;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: white;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: white;
+}
+
+::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: white;
+}
+
+::placeholder {
+	/* Most modern browsers support this now. */
+	color: white;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.numeric-input {
+
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
 }

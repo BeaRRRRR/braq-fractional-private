@@ -9,15 +9,13 @@ export default function Pool({ id, image, progress, hardcap, amount, price, inPr
         <div className="pool-card">
           <img className="pool-image" src={image}></img>
           <div className="pool-info">
-            <div className="pool-info__topbar">
+            <div className="pool-info__topbar" style={{ justifyContent: 'end' }}>
               {inProgress ? (
-                <span>IN PROGRESS</span>
+                <span style={{ color: '#0BFD9D' }}>IN PROGRESS</span>
               ) : (
-                <span style={{ color: '#0BFD9D' }}>COMPLETED</span>
+                <span>COMPLETED</span>
               )}
-              <span>
-                {progress[0]}/{progress[1]} ETH
-              </span>
+              <span>{/* {progress[0]}/{progress[1]} ETH */}</span>
             </div>
             <div className="pool-info__main">
               <div className="pool-info__main-element">
