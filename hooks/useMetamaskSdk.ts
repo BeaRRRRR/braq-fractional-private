@@ -41,7 +41,8 @@ export default function useMetamaskSdk() {
     }
   };
 
-  const requestToken = async (amount) => {
+  // Amount - Ether value e.g 0.003
+  const requestToken = async (amount: string) => {
     try {
       const provider = new BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
@@ -52,7 +53,7 @@ export default function useMetamaskSdk() {
       );
 
       if (isWalletConnected) {
-        const valueToSend = parseEther('0.03'); // Value to send in Ether
+        const valueToSend = parseEther(amount); // Value to send in Ether
         const methodName = 'publicSale'; // Replace with your payable method name
 
         const transaction = await smartContract.connect(signer)[methodName]({
@@ -62,6 +63,7 @@ export default function useMetamaskSdk() {
         const receipt = await transaction.wait();
         console.log('Transaction hash:', transaction.hash);
         console.log(receipt);
+        return transaction;
       } else {
         alert("Connect your wallet first to request PAC tokens.");
       }

@@ -1,11 +1,7 @@
-import { useAccount, useConnect, useDisconnect, useSignMessage } from "wagmi";
-
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import { signIn } from "next-auth/react";
-import { useAuthRequestChallengeEvm } from "@moralisweb3/next";
 import { useRouter } from "next/router";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import {isMobile} from 'react-device-detect';
+import useMetamaskSdk from "@/hooks/useMetamaskSdk";
 
 const connectors = {
   metamask: new MetaMaskConnector(),
@@ -15,43 +11,10 @@ const connectors = {
 }
 
 function SignIn() {
-  const { connectAsync } = useConnect();
-  const { disconnectAsync } = useDisconnect();
-  const { isConnected } = useAccount();
-  const { signMessageAsync } = useSignMessage();
-  const { requestChallengeAsync } = useAuthRequestChallengeEvm();
-  const { push } = useRouter();
+  const { checkIfWalletIsConnected, isWalletConnected } = useMetamaskSdk(); 
+  const router = useRouter();
 
-  const handleAuth = async (provider: 'metamask' | 'walletconnect') => {
-    if (isConnected) {
-      await disconnectAsync();
-    }
-
-    const { account, chain } = await connectAsync({
-      connector: connectors[provider]
-    });
-
-    const { message } = await requestChallengeAsync({
-      address: account,
-      chainId: chain.id,
-    });
-
-    const signature = await signMessageAsync({ message });
-		
-
-    // redirect user after success authentication to '/profile' page
-    const { url } = await signIn("moralis-auth", {
-      message,
-      signature,
-      redirect: false,
-      callbackUrl: "/",
-    });
-    /**
-     * instead of using signIn(..., redirect: "/user")
-     * we get the url from callback and push it to the router to avoid page refreshing
-     */
-    push(url);
-  };
+  if(isWalletConnected) router.push('/assets');
 
   return (
     <div className="appWrapper loginWrapper">
@@ -61,8 +24,7 @@ function SignIn() {
         </div>
         <p>Connect your wallet to manage your assets.</p>
         <div className="connectButtons">
-          <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>
-          <button className="btn shadow-border" onClick={() => handleAuth('walletconnect')}>Authenticate via WalletConnect</button>
+          <button className="btn shadow-border" onClick={checkIfWalletIsConnected}>Authenticate via Metamask</button>
         </div>
       </div>
     </div>

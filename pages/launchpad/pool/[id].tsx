@@ -21,6 +21,8 @@ import { pools } from '@/mock/pools';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import {isMobile} from 'react-device-detect';
+import useMetamaskSdk from '@/hooks/useMetamaskSdk';
 
 const connectors = {
   metamask: new MetaMaskConnector(),
@@ -32,59 +34,27 @@ const connectors = {
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
 
+  const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
   const [braqValue, setBraqValue] = useState(0.25 * ethToBraq);
   const router = useRouter();
-  const { address, connector, isConnected } = useAccount();
-  const { status } = useSession();
 
-  const { connectAsync } = useConnect();
-  const { disconnectAsync } = useDisconnect();
-  const { signMessageAsync } = useSignMessage();
-  const { requestChallengeAsync } = useAuthRequestChallengeEvm();
-
-  async function handleSmartContract(provider: 'metamask' | 'walletconnect') {
-    await handleAuth(provider);
-    write();
-  }
-
-  const handleAuth = async (provider: 'metamask' | 'walletconnect') => {
-    if (isConnected) {
-      await disconnectAsync();
-    }
-
-    const { account, chain } = await connectAsync({
-      connector: connectors[provider] 
-    });
-
-    if (status === 'authenticated') return;
-
-    const { message } = await requestChallengeAsync({
-      address: account,
-      chainId: chain.id,
-    });
-
-    const signature = await signMessageAsync({ message });
-
-    await signIn('moralis-auth', {
-      message,
-      signature,
-      redirect: false,
-    });
-  };
-
+  const { checkIfWalletIsConnected, isWalletConnected, requestToken } = useMetamaskSdk(); 
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
-  //TODO: fix and all normal typeings
-  const { data, isLoading, isSuccess, write } = useContractWrite({
-    address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634' as never,
-    abi: abi.abi as never,
-    functionName: 'publicSale' as never,
-    value: parseEther(`${ethValue}`) as never,
-    onSuccess(data) {
-      alert(`Successful! Hash: ${data.hash}`);
-    },
-  });
+  useEffect(() => {
+    const { immediateBuy } = router.query;
+    if(new Boolean(immediateBuy)) onBuy(true);
+  }, [])
+
+  async function onBuy(skip = false) {
+    if(isMobile && !skip) {
+      document.location = 'https://metamask.app.link/dapp/braq-fractional-private.vercel.app/launchpad/pool/1?immediateBuy=true'
+    } else {
+      const transaction = await requestToken(`${ethValue}`);
+      setTransaction(transaction)
+    }
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const eth = e.target.value as unknown as number;
@@ -223,13 +193,10 @@ export default function LaunchpadItem() {
                         </span>
                       </div> */}
                       <div className="right">
-                        <button onClick={() => handleSmartContract('metamask')} className="gradient-button">
+                        <button onClick={onBuy} className="gradient-button">
                           BUY TOKENS
                           <div className="shine"></div>
                         </button>
-                        <button onClick={() => handleSmartContract('walletconnect')}>Buy with WalletConnect</button>
-                        {isSuccess && <p>Transaction: {data.hash}</p>}
-                        {isLoading && <p>Loading...</p>}
                       </div>
                     </div>
                   </div>
