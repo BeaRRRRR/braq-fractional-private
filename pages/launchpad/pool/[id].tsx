@@ -1,6 +1,6 @@
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
-import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Container, Dropdown, Form, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import {
@@ -67,7 +67,6 @@ export default function LaunchpadItem() {
 
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
-  //TODO: fix and all normal typeings
   const { data, isLoading, isSuccess, write } = useContractWrite({
     address: '0xEC5A0b7ce4608335aF82d18dE3166324EEfD9634' as never,
     abi: abi.abi as never,
@@ -156,7 +155,7 @@ export default function LaunchpadItem() {
                   </div>
                 </Col>
                 <Col md={8} className="rightBlock">
-                  <div className="topbar" style={{ justifyContent: 'end' }}>
+                  <div className="topbar">
                     <span>IN PROGRESS</span>
                   </div>
                   <div className="mainContent">
@@ -215,10 +214,10 @@ export default function LaunchpadItem() {
                         </span>
                       </div> */}
                       <div className="right">
-                        <button onClick={() => handleSmartContract()} className="gradient-button">
+                        <Button onClick={() => handleSmartContract()} className="gradient-button">
                           BUY TOKENS
                           <div className="shine"></div>
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </div>
