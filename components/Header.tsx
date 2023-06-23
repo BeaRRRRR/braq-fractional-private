@@ -4,11 +4,11 @@ import { connect, signTransaction } from '@joyid/evm';
 
 import { FaRegUserCircle } from 'react-icons/fa';
 import Head from 'next/head';
-import { parseEther } from 'ethers/lib/utils';
 import { useState } from 'react';
 import { useBoundStore } from '@/store/store';
 import { useAccount } from "wagmi";
 import Link from 'next/link';
+import { parseEther } from 'ethers';
 
 export default function Header() {
   const { address } = useAccount();
