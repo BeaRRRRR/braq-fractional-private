@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { useAuthRequestChallengeEvm } from "@moralisweb3/next";
 import { useRouter } from "next/router";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import {isMobile} from 'react-device-detect';
 
 const connectors = {
   metamask: new MetaMaskConnector(),
@@ -60,7 +61,7 @@ function SignIn() {
         </div>
         <p>Connect your wallet to manage your assets.</p>
         <div className="connectButtons">
-          <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>
+          {!isMobile && <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>}
           <button className="btn shadow-border" onClick={() => handleAuth('walletconnect')}>Authenticate via WalletConnect</button>
         </div>
       </div>
