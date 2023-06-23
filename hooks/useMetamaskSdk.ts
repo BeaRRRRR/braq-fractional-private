@@ -5,16 +5,6 @@ import { BrowserProvider, Contract, parseEther } from 'ethers';
 export default function useMetamaskSdk() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [currentAccount, setCurrentAccount] = useState(null);
-  const [accountBalance, setAccountBalance] = useState("0");
-  const [isOwner, setIsOwner] = useState(false);
-
-  const [inputValue, setInputValue] = useState({
-    mintTo: "",
-    mintAmount: "",
-    burnAmount: "",
-    sendTo: "",
-    sendAmount: "",
-  });
 
   const contractAddress: string = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
   console.log(contractAddress)

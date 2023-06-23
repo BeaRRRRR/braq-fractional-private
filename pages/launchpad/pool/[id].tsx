@@ -1,8 +1,7 @@
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 import { Button, Col, Container, Dropdown, Form, Modal, Row } from 'react-bootstrap';
-import React, { Component, useEffect, useState } from 'react';
-import { signIn, useSession } from 'next-auth/react';
+import React, { useState } from 'react';
 import {
   useAccount,
   useConnect,
@@ -13,14 +12,8 @@ import {
 } from 'wagmi';
 
 import { BsArrowLeft } from 'react-icons/bs';
-import { FiCheckCircle } from 'react-icons/fi';
-import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { abi } from '@/mock/abi';
-import { parseEther } from 'viem';
 import { pools } from '@/mock/pools';
-import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
-import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import useMetamaskSdk from '@/hooks/useMetamaskSdk';
 import useGetAddressBalance from '@/hooks/useGetAddressBalance';
 
