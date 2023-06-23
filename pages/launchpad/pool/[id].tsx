@@ -28,8 +28,9 @@ import { useRouter } from 'next/router';
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
 
-  const tokenAddress = '0x8675a1C67BD6e644155fC88a8E83Ee84A4a8a8f2';
-  const poolAddress = '0x875153E3e781BF4c8E03cE8cEED704a2796a16b4 ';
+  const tokenAddress = '0x30885DDA7062A9c0a41B9bCE631C35f1f5f7338c';
+  const poolAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+
   const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
