@@ -15,19 +15,19 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiCheckCircle } from 'react-icons/fi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { abi } from '@/mock/abi';
 import { parseEther } from 'viem';
 import { pools } from '@/mock/pools';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
-import useGetAddressBalance from '@/hooks/useGetAddressBalance';
-import useMetamaskSdk from '@/hooks/useMetamaskSdk';
 import { useRouter } from 'next/router';
+import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import useMetamaskSdk from '@/hooks/useMetamaskSdk';
+import useGetAddressBalance from '@/hooks/useGetAddressBalance';
 
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
 
-  const balance = (useGetAddressBalance() / 10 ** 18).toFixed(2);
+  const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
   const [braqValue, setBraqValue] = useState(0.25 * ethToBraq);
@@ -38,7 +38,7 @@ export default function LaunchpadItem() {
 
   async function onBuy(skip = false) {
     const transaction = await requestToken(`${ethValue}`);
-    setTransaction(transaction);
+    setTransaction(transaction)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +49,7 @@ export default function LaunchpadItem() {
 
   return (
     <>
+      <p>Amount sold: ${balance}</p>
       <div className="appWrapper">
         <Container fluid>
           <Row className="pageHeaderLaunchpad" style={{ backgroundColor: '#1E184C' }}>
@@ -68,9 +69,9 @@ export default function LaunchpadItem() {
           </Row>
 
           <Row className="launchpoolContainer">
-            <div className="back-btn">
-              <BsArrowLeft onClick={() => router.back()} />
-              <span onClick={() => router.back()}>BACK</span>
+            <div onClick={() => router.back()} className="back-btn">
+              <BsArrowLeft />
+              <span>BACK</span>
             </div>
 
             <Container fluid>
@@ -120,7 +121,7 @@ export default function LaunchpadItem() {
                 </Col>
                 <Col md={8} className="rightBlock">
                   <div className="topbar">
-                    <span>{balance} / 200 IN PROGRESS</span>
+                    <span>IN PROGRESS</span>
                   </div>
                   <div className="mainContent">
                     <div className="first">
