@@ -21,14 +21,13 @@ import { pools } from '@/mock/pools';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import {isMobile} from 'react-device-detect';
 import useMetamaskSdk from '@/hooks/useMetamaskSdk';
 
 const connectors = {
   metamask: new MetaMaskConnector(),
   walletconnect: new WalletConnectConnector({
-      options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
-    }),
+    options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
+  }),
 }
 
 export default function LaunchpadItem() {
@@ -39,21 +38,12 @@ export default function LaunchpadItem() {
   const [braqValue, setBraqValue] = useState(0.25 * ethToBraq);
   const router = useRouter();
 
-  const { checkIfWalletIsConnected, isWalletConnected, requestToken } = useMetamaskSdk(); 
+  const { checkIfWalletIsConnected, isWalletConnected, requestToken } = useMetamaskSdk();
   const { id, image, progress, hardcap, amount, price, inProgress } = pools[0];
 
-  useEffect(() => {
-    const { immediateBuy } = router.query;
-    if(immediateBuy === 'true') onBuy(true);
-  }, [])
-
   async function onBuy(skip = false) {
-    if(true && !skip) {
-      document.location = 'https://metamask.app.link/dapp/braq-fractional-private.vercel.app/launchpad/pool/1?immediateBuy=true'
-    } else {
-      const transaction = await requestToken(`${ethValue}`);
-      setTransaction(transaction)
-    }
+    const transaction = await requestToken(`${ethValue}`);
+    setTransaction(transaction)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

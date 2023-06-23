@@ -1,10 +1,11 @@
 import { BiChevronRightCircle } from 'react-icons/bi';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { isMobile } from 'react-device-detect';
 
 export default function Pool({ id, image, progress, hardcap, amount, price, inProgress }) {
   return (
-    <Link href={`launchpad/pool/${id}`}>
+    <Link href={`${isMobile ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''}launchpad/pool/${id}`}>
       <div className="pool">
         <div className="pool-card">
           <img className="pool-image" src={image}></img>
