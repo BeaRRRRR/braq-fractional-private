@@ -4,6 +4,14 @@ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { signIn } from "next-auth/react";
 import { useAuthRequestChallengeEvm } from "@moralisweb3/next";
 import { useRouter } from "next/router";
+import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+
+const connectors = {
+  metamask: new MetaMaskConnector(),
+  walletconnect: new WalletConnectConnector({
+      options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
+    }),
+}
 
 function SignIn() {
   const { connectAsync } = useConnect();
@@ -13,13 +21,13 @@ function SignIn() {
   const { requestChallengeAsync } = useAuthRequestChallengeEvm();
   const { push } = useRouter();
 
-  const handleAuth = async () => {
+  const handleAuth = async (provider: 'metamask' | 'walletconnect') => {
     if (isConnected) {
       await disconnectAsync();
     }
 
     const { account, chain } = await connectAsync({
-      connector: new MetaMaskConnector(),
+      connector: connectors[provider]
     });
 
     const { message } = await requestChallengeAsync({
@@ -52,7 +60,8 @@ function SignIn() {
         </div>
         <p>Connect your wallet to manage your assets.</p>
         <div className="connectButtons">
-          <button className="btn shadow-border" onClick={handleAuth}>Authenticate via Metamask</button>
+          <button className="btn shadow-border" onClick={() => handleAuth('metamask')}>Authenticate via Metamask</button>
+          <button className="btn shadow-border" onClick={() => handleAuth('walletconnect')}>Authenticate via WalletConnect</button>
         </div>
       </div>
     </div>

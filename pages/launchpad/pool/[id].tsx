@@ -20,6 +20,14 @@ import { parseEther } from 'viem';
 import { pools } from '@/mock/pools';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
+import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+
+const connectors = {
+  metamask: new MetaMaskConnector(),
+  walletconnect: new WalletConnectConnector({
+      options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
+    }),
+}
 
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
@@ -35,18 +43,18 @@ export default function LaunchpadItem() {
   const { signMessageAsync } = useSignMessage();
   const { requestChallengeAsync } = useAuthRequestChallengeEvm();
 
-  async function handleSmartContract() {
-    await handleAuth();
+  async function handleSmartContract(provider: 'metamask' | 'walletconnect') {
+    await handleAuth(provider);
     write();
   }
 
-  const handleAuth = async () => {
+  const handleAuth = async (provider: 'metamask' | 'walletconnect') => {
     if (isConnected) {
       await disconnectAsync();
     }
 
     const { account, chain } = await connectAsync({
-      connector: new MetaMaskConnector(),
+      connector: connectors[provider] 
     });
 
     if (status === 'authenticated') return;
@@ -214,10 +222,20 @@ export default function LaunchpadItem() {
                         </span>
                       </div> */}
                       <div className="right">
+<<<<<<< HEAD
                         <Button onClick={() => handleSmartContract()} className="gradient-button">
                           BUY TOKENS
                           <div className="shine"></div>
                         </Button>
+=======
+                        <button onClick={() => handleSmartContract('metamask')} className="gradient-button">
+                          BUY TOKENS
+                          <div className="shine"></div>
+                        </button>
+                        <button onClick={() => handleSmartContract('walletconnect')}>Buy with WalletConnect</button>
+                        {isSuccess && <p>Transaction: {data}</p>}
+                        {isLoading && <p>Loading...</p>}
+>>>>>>> 3d7956703f1ae663a55ab955c1b67d07a6adf75b
                       </div>
                     </div>
                   </div>
