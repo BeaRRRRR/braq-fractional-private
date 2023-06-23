@@ -30,7 +30,6 @@ export default function LaunchpadItem() {
 
   const tokenAddress = '0x30885DDA7062A9c0a41B9bCE631C35f1f5f7338c';
   const poolAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
-  console.log(poolAddress);
   const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
@@ -46,11 +45,14 @@ export default function LaunchpadItem() {
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const eth = e.target.value as unknown as number;
-    setEthValue(eth);
-    setBraqValue(eth * ethToBraq);
+    const value = e.target.value as unknown as number;
+
+    if (!isNaN(value)) {
+      setEthValue(value);
+      let braq = value * ethToBraq;
+      setBraqValue(+braq.toFixed(2));
+    }
   };
-  console.log(balance);
 
   return (
     <>

@@ -5,13 +5,13 @@ import { Button, Col, Container, Dropdown, Modal, Row } from 'react-bootstrap';
 import React, { Component, useEffect, useState } from 'react';
 
 import Head from '@/components/Head';
+import dynamic from 'next/dynamic';
 import { isMobile } from 'react-device-detect';
 import { pools } from '../../mock/pools';
-import dynamic from 'next/dynamic';
 
 const DynamicPool = dynamic(() => import('@/components/Pool'), {
   ssr: false,
-})
+});
 
 export default function Launchpad() {
   return (
