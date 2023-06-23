@@ -1,0 +1,106 @@
+[00:19:17.371] Global cache location '/Users/bear/Library/Caches/typescript/4.7', safe file path '/users/bear/.emacs.d/.cache/lsp/npm/typescript/lib/node_modules/typescript/lib/typingsafelist.json', types map path /users/bear/.emacs.d/.cache/lsp/npm/typescript/lib/node_modules/typescript/lib/typesmap.json
+[00:19:17.371] Processing cache location '/Users/bear/Library/Caches/typescript/4.7'
+[00:19:17.371] Trying to find '/Users/bear/Library/Caches/typescript/4.7/package.json'...
+[00:19:17.378] Loaded content of '/Users/bear/Library/Caches/typescript/4.7/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.649"},"devDependencies":{"@types/archiver":"^5.3.1","@types/are-we-there-yet":"^1.1.0","@types/aws-lambda":"^8.10.101","@types/babel__core":"^7.1.19","@types/babel__preset-env":"^7.9.2","@types/bootstrap":"^5.2.6","@types/chance":"^1.1.3","@types/clean-css":"^4.2.5","@types/cls-hooked":"^4.3.3","@types/color":"^3.0.3","@types/color-convert":"^2.0.0","@types/color-string":"^1.5.2","@types/cookie":"^0.5.1","@types/core-js":"^2.5.5","@types/cors":"^2.8.13","@types/crypto-js":"^4.1.1","@types/draft-js":"^0.11.9","@types/enzyme":"^3.10.12","@types/enzyme-adapter-react-16":"^1.0.6","@types/eslint":"^8.40.1","@types/eslint-config-prettier":"^6.11.0","@types/eslint-plugin-prettier":"^3.1.0","@types/express":"^4.17.17","@types/fbjs":"^3.0.3","@types/intl":"^1.2.0","@types/invariant":"^2.2.35","@types/is-ci":"^3.0.0","@types/jest-in-case":"^1.0.6","@types/jsdom":"^16.2.14","@types/jsonld":"^1.5.8","@types/jsonwebtoken":"^8.5.8","@types/less":"^3.0.3","@types/lodash":"^4.14.186","@types/luxon":"^3.0.1","@types/mkdirp":"^1.0.2","@types/mock-aws-s3":"^2.6.3","@types/morgan":"^1.9.3","@types/mustache":"^4.1.3","@types/n3":"^1.10.4","@types/next-redux-saga":"^3.0.2","@types/node-fetch":"^2.6.2","@types/nodemailer":"^6.4.7","@types/nodemon":"^1.19.2","@types/nodeunit":"^0.0.32","@types/nopt":"^3.0.29","@types/npm":"^7.19.0","@types/npmlog":"^4.1.4","@types/object-assign":"^4.0.30","@types/pako":"^2.0.0","@types/pg":"^8.6.5","@types/picomatch":"^2.3.0","@types/prettier":"^2.7.1","@types/pretty-quick":"^3.1.1","@types/proj4":"^2.5.2","@types/react":"^18.2.13","@types/react-bootstrap":"^0.32.32","@types/react-datepicker":"^4.4.2","@types/react-dom":"^18.2.6","@types/react-grid-layout":"^1.3.2","@types/react-native":"^0.70.4","@types/react-native-doc-viewer":"^2.7.2","@types/react-native-push-notification":"^8.1.1","@types/react-native-snap-carousel":"^3.8.5","@types/react-native-table-component":"^1.2.4","@types/react-native-vector-icons":"^6.4.12","@types/react-redux":"^7.1.24","@types/react-router-dom":"^5.3.3","@types/react-test-renderer":"^18.0.0","@types/redux-mock-store":"^1.0.3","@types/regenerator-runtime":"^0.13.1","@types/rimraf":"^3.0.2","@types/supertest":"^2.0.12","@types/testing-library__jest-dom":"^5.14.6","@types/three":"^0.149.0","@types/uuid":"^9.0.2","@types/validator":"^13.7.4","@types/wait-on":"^5.3.1","@types/webpack":"^5.28.0","@types/zeit__next-source-maps":"^0.0.2"}}
+[00:19:17.378] Loaded content of '/Users/bear/Library/Caches/typescript/4.7/package-lock.json'
+[00:19:17.386] Adding entry into typings cache: 'archiver' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/archiver/index.d.ts'
+[00:19:17.389] Adding entry into typings cache: 'are-we-there-yet' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/are-we-there-yet/index.d.ts'
+[00:19:17.392] Adding entry into typings cache: 'aws-lambda' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/aws-lambda/index.d.ts'
+[00:19:17.394] Adding entry into typings cache: 'babel__core' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/babel__core/index.d.ts'
+[00:19:17.395] Adding entry into typings cache: 'babel__preset-env' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/babel__preset-env/index.d.ts'
+[00:19:17.396] Adding entry into typings cache: 'bootstrap' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/bootstrap/index.d.ts'
+[00:19:17.397] Adding entry into typings cache: 'chance' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/chance/index.d.ts'
+[00:19:17.399] Adding entry into typings cache: 'clean-css' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/clean-css/index.d.ts'
+[00:19:17.401] Adding entry into typings cache: 'cls-hooked' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/cls-hooked/index.d.ts'
+[00:19:17.403] Adding entry into typings cache: 'color' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/color/index.d.ts'
+[00:19:17.406] Adding entry into typings cache: 'color-convert' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/color-convert/index.d.ts'
+[00:19:17.408] Adding entry into typings cache: 'color-string' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/color-string/index.d.ts'
+[00:19:17.409] Adding entry into typings cache: 'cookie' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/cookie/index.d.ts'
+[00:19:17.410] Adding entry into typings cache: 'core-js' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/core-js/index.d.ts'
+[00:19:17.417] Adding entry into typings cache: 'cors' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/cors/index.d.ts'
+[00:19:17.418] Adding entry into typings cache: 'crypto-js' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/crypto-js/index.d.ts'
+[00:19:17.420] Adding entry into typings cache: 'draft-js' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/draft-js/index.d.ts'
+[00:19:17.421] Adding entry into typings cache: 'enzyme' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/enzyme/index.d.ts'
+[00:19:17.423] Adding entry into typings cache: 'enzyme-adapter-react-16' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/enzyme-adapter-react-16/index.d.ts'
+[00:19:17.424] Adding entry into typings cache: 'eslint' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/eslint/index.d.ts'
+[00:19:17.425] Adding entry into typings cache: 'eslint-config-prettier' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/eslint-config-prettier/index.d.ts'
+[00:19:17.427] Adding entry into typings cache: 'eslint-plugin-prettier' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/eslint-plugin-prettier/index.d.ts'
+[00:19:17.430] Adding entry into typings cache: 'express' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/express/index.d.ts'
+[00:19:17.431] Adding entry into typings cache: 'fbjs' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/fbjs/index.d.ts'
+[00:19:17.432] Adding entry into typings cache: 'intl' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/intl/index.d.ts'
+[00:19:17.435] Adding entry into typings cache: 'invariant' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/invariant/index.d.ts'
+[00:19:17.435] Adding entry into typings cache: 'is-ci' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/is-ci/index.d.ts'
+[00:19:17.438] Adding entry into typings cache: 'jest-in-case' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/jest-in-case/index.d.ts'
+[00:19:17.439] Adding entry into typings cache: 'jsdom' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/jsdom/index.d.ts'
+[00:19:17.440] Adding entry into typings cache: 'jsonld' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/jsonld/index.d.ts'
+[00:19:17.441] Adding entry into typings cache: 'jsonwebtoken' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/jsonwebtoken/index.d.ts'
+[00:19:17.442] Adding entry into typings cache: 'less' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/less/index.d.ts'
+[00:19:17.448] Adding entry into typings cache: 'lodash' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/lodash/index.d.ts'
+[00:19:17.450] Adding entry into typings cache: 'luxon' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/luxon/index.d.ts'
+[00:19:17.452] Adding entry into typings cache: 'mkdirp' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/mkdirp/index.d.ts'
+[00:19:17.453] Adding entry into typings cache: 'mock-aws-s3' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/mock-aws-s3/index.d.ts'
+[00:19:17.454] Adding entry into typings cache: 'morgan' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/morgan/index.d.ts'
+[00:19:17.455] Adding entry into typings cache: 'mustache' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/mustache/index.d.ts'
+[00:19:17.456] Adding entry into typings cache: 'n3' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/n3/index.d.ts'
+[00:19:17.456] Adding entry into typings cache: 'next-redux-saga' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/next-redux-saga/index.d.ts'
+[00:19:17.459] Adding entry into typings cache: 'node-fetch' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/node-fetch/index.d.ts'
+[00:19:17.460] Adding entry into typings cache: 'nodemailer' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/nodemailer/index.d.ts'
+[00:19:17.461] Adding entry into typings cache: 'nodemon' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/nodemon/index.d.ts'
+[00:19:17.463] Adding entry into typings cache: 'nodeunit' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/nodeunit/index.d.ts'
+[00:19:17.464] Adding entry into typings cache: 'nopt' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/nopt/index.d.ts'
+[00:19:17.465] Adding entry into typings cache: 'npm' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/npm/index.d.ts'
+[00:19:17.466] Adding entry into typings cache: 'npmlog' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/npmlog/index.d.ts'
+[00:19:17.467] Adding entry into typings cache: 'object-assign' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/object-assign/index.d.ts'
+[00:19:17.468] Adding entry into typings cache: 'pako' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/pako/index.d.ts'
+[00:19:17.469] Adding entry into typings cache: 'pg' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/pg/index.d.ts'
+[00:19:17.470] Adding entry into typings cache: 'picomatch' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/picomatch/index.d.ts'
+[00:19:17.472] Adding entry into typings cache: 'prettier' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/prettier/index.d.ts'
+[00:19:17.475] Adding entry into typings cache: 'pretty-quick' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/pretty-quick/index.d.ts'
+[00:19:17.480] Adding entry into typings cache: 'proj4' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/proj4/index.d.ts'
+[00:19:17.483] Adding entry into typings cache: 'react' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react/ts5.0/index.d.ts'
+[00:19:17.485] Adding entry into typings cache: 'react-bootstrap' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-bootstrap/index.d.ts'
+[00:19:17.485] Adding entry into typings cache: 'react-datepicker' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-datepicker/index.d.ts'
+[00:19:17.487] Adding entry into typings cache: 'react-dom' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-dom/index.d.ts'
+[00:19:17.489] Adding entry into typings cache: 'react-grid-layout' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-grid-layout/index.d.ts'
+[00:19:17.493] Adding entry into typings cache: 'react-native' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native/index.d.ts'
+[00:19:17.494] Adding entry into typings cache: 'react-native-doc-viewer' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native-doc-viewer/index.d.ts'
+[00:19:17.495] Adding entry into typings cache: 'react-native-push-notification' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native-push-notification/index.d.ts'
+[00:19:17.496] Adding entry into typings cache: 'react-native-snap-carousel' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native-snap-carousel/index.d.ts'
+[00:19:17.496] Adding entry into typings cache: 'react-native-table-component' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native-table-component/index.d.ts'
+[00:19:17.497] Adding entry into typings cache: 'react-native-vector-icons' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-native-vector-icons/index.d.ts'
+[00:19:17.498] Adding entry into typings cache: 'react-redux' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-redux/index.d.ts'
+[00:19:17.499] Adding entry into typings cache: 'react-router-dom' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-router-dom/index.d.ts'
+[00:19:17.499] Adding entry into typings cache: 'react-test-renderer' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/react-test-renderer/index.d.ts'
+[00:19:17.500] Adding entry into typings cache: 'redux-mock-store' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/redux-mock-store/index.d.ts'
+[00:19:17.501] Adding entry into typings cache: 'regenerator-runtime' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/regenerator-runtime/index.d.ts'
+[00:19:17.502] Adding entry into typings cache: 'rimraf' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/rimraf/index.d.ts'
+[00:19:17.503] Adding entry into typings cache: 'supertest' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/supertest/index.d.ts'
+[00:19:17.504] Adding entry into typings cache: 'testing-library__jest-dom' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/testing-library__jest-dom/index.d.ts'
+[00:19:17.505] Adding entry into typings cache: 'three' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/three/index.d.ts'
+[00:19:17.507] Adding entry into typings cache: 'uuid' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/uuid/index.d.ts'
+[00:19:17.507] Adding entry into typings cache: 'validator' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/validator/index.d.ts'
+[00:19:17.508] Adding entry into typings cache: 'wait-on' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/wait-on/index.d.ts'
+[00:19:17.510] Adding entry into typings cache: 'webpack' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/webpack/types.d.ts'
+[00:19:17.510] Adding entry into typings cache: 'zeit__next-source-maps' => '/Users/bear/Library/Caches/typescript/4.7/node_modules/@types/zeit__next-source-maps/index.d.ts'
+[00:19:17.510] Finished processing cache location '/Users/bear/Library/Caches/typescript/4.7'
+[00:19:17.511] Process id: 35672
+[00:19:17.511] NPM location: /usr/local/bin/npm (explicit '--npmLocation' not  provided)
+[00:19:17.511] validateDefaultNpmLocation: false
+[00:19:17.511] Npm config file: /Users/bear/Library/Caches/typescript/4.7/package.json
+[00:19:17.511] Updating types-registry npm package...
+[00:19:17.511] Exec: /usr/local/bin/npm install --ignore-scripts types-registry@latest
+[00:19:20.282]     Succeeded. stdout:
+    
+    up to date, audited 932 packages in 2s
+
+75 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 moderate, 3 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+[00:19:20.282] Updated types-registry npm package

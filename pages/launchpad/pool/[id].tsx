@@ -228,7 +228,7 @@ export default function LaunchpadItem() {
                           <div className="shine"></div>
                         </button>
                         <button onClick={() => handleSmartContract('walletconnect')}>Buy with WalletConnect</button>
-                        {isSuccess && <p>Transaction: {data}</p>}
+                        {isSuccess && <p>Transaction: {data.hash}</p>}
                         {isLoading && <p>Loading...</p>}
                       </div>
                     </div>
