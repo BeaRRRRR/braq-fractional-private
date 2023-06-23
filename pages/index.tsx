@@ -1,6 +1,3 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from './api/auth/[...nextauth]';
-
 export default function Home() {
   return (
     <>
@@ -8,19 +5,7 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context) {
-  const session = getServerSession(context.req, context.res, authOptions);
-
-  // redirect if not authenticated
-  if (!session || session == null) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanent: false,
-      },
-    };
-  }
-
+export async function getServerSideProps() {
   return {
     redirect: {
       destination: "/assets",
