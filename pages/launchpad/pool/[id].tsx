@@ -44,11 +44,11 @@ export default function LaunchpadItem() {
 
   useEffect(() => {
     const { immediateBuy } = router.query;
-    if(new Boolean(immediateBuy)) onBuy(true);
+    if(immediateBuy === 'true') onBuy(true);
   }, [])
 
   async function onBuy(skip = false) {
-    if(isMobile && !skip) {
+    if(true && !skip) {
       document.location = 'https://metamask.app.link/dapp/braq-fractional-private.vercel.app/launchpad/pool/1?immediateBuy=true'
     } else {
       const transaction = await requestToken(`${ethValue}`);
