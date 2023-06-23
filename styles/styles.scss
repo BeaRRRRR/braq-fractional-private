@@ -1578,7 +1578,9 @@ input[type="number"] {
 
 @media (max-width: 767px) {
 
-
+	.imageContainer .secondImage {
+		width: 50%;
+	}
 
 	.pool-card .pool-info__main {
 		padding: 8%;
@@ -1675,7 +1677,9 @@ input[type="number"] {
 }
 
 @media (max-width: 600px) {
-
+	.imageContainer .secondImage {
+		width: 40%;
+	}
 
 	.launchpoolsContainer h1 {
 		font-size: 24px;
