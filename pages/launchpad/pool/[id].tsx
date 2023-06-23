@@ -193,7 +193,7 @@ export default function LaunchpadItem() {
                         </span>
                       </div> */}
                       <div className="right">
-                        <button onClick={onBuy} className="gradient-button">
+                        <button onClick={() => onBuy()} className="gradient-button">
                           BUY TOKENS
                           <div className="shine"></div>
                         </button>
