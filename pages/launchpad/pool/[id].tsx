@@ -19,6 +19,14 @@ import { signIn, useSession } from 'next-auth/react';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { parseEther } from 'viem';
 
+
+const connectors = {
+  metamask: new MetaMaskConnector(),
+  walletconnect: new WalletConnectConnector({
+      options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
+    }),
+}
+
 export default function LaunchpadItem() {
   const [value, setValue] = useState(0.25);
   const router = useRouter();
@@ -170,7 +178,8 @@ export default function LaunchpadItem() {
                       <div className="right">
                         <input type="number" step="0.01" min="0.25" value={value} onChange={(e) => setValue(e.target.value as unknown as number)}></input>
                         <p>The mimimum amount for purchase is 0.25eth</p>
-                        <button onClick={() => handleSmartContract()}>Buy</button>
+                        <button onClick={() => handleSmartContract()}>Buy with MetaMask</button>
+                        <button onClick={() => handleSmartContract()}>Buy with WalletConnect</button>
                         {isLoading && <div>Check Wallet</div>}
                         {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
                       </div>
