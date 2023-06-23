@@ -22,17 +22,12 @@ import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 import { useRouter } from 'next/router';
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import useMetamaskSdk from '@/hooks/useMetamaskSdk';
-
-const connectors = {
-  metamask: new MetaMaskConnector(),
-  walletconnect: new WalletConnectConnector({
-    options: { projectId: "9890e33f1738c36147df0d081f9fe80a", showQrModal: true },
-  }),
-}
+import useGetAddressBalance from '@/hooks/useGetAddressBalance';
 
 export default function LaunchpadItem() {
   const ethToBraq = 16_666;
 
+  const balance = useGetAddressBalance();
   const [transaction, setTransaction] = useState(null);
   const [ethValue, setEthValue] = useState(0.25);
   const [braqValue, setBraqValue] = useState(0.25 * ethToBraq);
@@ -54,6 +49,7 @@ export default function LaunchpadItem() {
 
   return (
     <>
+      <p>Amount sold: ${balance}</p>
       <div className="appWrapper">
         <Container fluid>
           <Row className="pageHeaderLaunchpad" style={{ backgroundColor: '#1E184C' }}>
