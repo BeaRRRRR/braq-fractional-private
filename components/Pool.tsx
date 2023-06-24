@@ -9,7 +9,7 @@ export default function Pool({ id, image, progress, hardcap, amount, price, inPr
   return (
     <Link
       href={`${
-        window.ethereum ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''
+        !window.ethereum ? `https://metamask.app.link/dapp/${process.env.NEXT_PUBLIC_APP_URL}` : ''
       }launchpad/pool/${id}`}>
       <div className="pool">
         <div className="pool-card">
